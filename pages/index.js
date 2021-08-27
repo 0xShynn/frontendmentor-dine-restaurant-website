@@ -1,3 +1,4 @@
+import { Button, Heading, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -13,44 +14,32 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <Text as="h1" textStyle="h1">
+          Exquisite dining since 1989
+        </Text>
+        <Text as="h2" textStyle="h2">
+          Enjoyable place for all the family
+        </Text>
+        <Text as="h3" textStyle="h3l">
+          Seared Salmon Fillet
+        </Text>
+        <Text as="h3" textStyle="h3s">
+          FAMILY GATHERING
+        </Text>
+        <Text textStyle="body1">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus
+          hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet
+          vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin
+          laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor
+          eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+        </Text>
+        <Text textStyle="body2">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus
+          hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet
+          vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin
+          laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor
+          eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+        </Text>
       </main>
 
       <footer className={styles.footer}>
