@@ -1,14 +1,14 @@
 import { ChakraProvider } from '@chakra-ui/react';
 
-import customTheme from '../styles/theme';
 import '@fontsource/spartan/300.css';
 import '@fontsource/spartan/400.css';
 import '@fontsource/spartan/600.css';
 import '@fontsource/spartan/700.css';
+import overrides from '../theme/index';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider theme={customTheme}>
+    <ChakraProvider theme={overrides}>
       <Component {...pageProps} />
     </ChakraProvider>
   );
