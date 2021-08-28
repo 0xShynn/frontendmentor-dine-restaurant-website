@@ -1,6 +1,7 @@
 // theme/index.js
 import { extendTheme } from '@chakra-ui/react';
 
+import breakpoints from './breakpoints';
 import colors from './colors';
 import Button from './components/button';
 import Heading from './components/heading';
@@ -13,6 +14,7 @@ import textStyles from './textStyles';
 const overrides = {
   styles,
   colors,
+  breakpoints,
   fonts,
   textStyles,
   components: {
