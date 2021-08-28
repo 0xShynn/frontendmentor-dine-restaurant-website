@@ -6,9 +6,6 @@ const styles = {
       fontFamily: 'body',
       bg: 'white',
     },
-    a: {
-      _hover: {},
-    },
   },
 };
 

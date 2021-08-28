@@ -1,54 +1,21 @@
+import { sharedBaseStyle, light, dark } from './sharedStyleLinkButton';
+
 const Button = {
   baseStyle: {
-    rounded: 'none',
-    borderWidth: '1px',
-    textTransform: 'uppercase',
-    fontWeight: 'semibold',
-    letterSpacing: '2px',
-    textTransform: 'uppercase',
+    ...sharedBaseStyle,
   },
   sizes: {
     sm: {},
     md: {
-      pt: '32px',
-      pb: '30px',
-      pl: '40px',
-      pr: '38px',
-      fontSize: '16px',
+      py: '30px',
+      px: '50px',
+      fontSize: '14px',
     },
     lg: {},
   },
   variants: {
-    light: {
-      borderColor: 'primary.codgray',
-      color: 'primary.codgray',
-      _hover: {
-        bg: 'black',
-        color: 'white',
-      },
-      _disabled: {
-        _hover: {
-          color: 'primary.codgray',
-        },
-      },
-    },
-    dark: {
-      borderColor: 'white',
-      color: 'white',
-      _hover: {
-        bg: 'white',
-        color: 'primary.codgray',
-      },
-      _disabled: {
-        color: 'white',
-        _hover: {
-          color: 'white',
-        },
-      },
-    },
-    primary: {
-      bg: 'red',
-    },
+    ...light,
+    ...dark,
   },
   defaultProps: {
     size: 'md',

@@ -1,6 +1,28 @@
+import { sharedBaseStyle, light, dark } from './sharedStyleLinkButton';
+
 const Link = {
+  baseStyle: {
+    ...sharedBaseStyle,
+    _hover: {
+      textDecoration: 'none',
+    },
+  },
+  sizes: {
+    sm: {},
+    md: {
+      py: '20px',
+      px: '50px',
+      fontSize: '14px',
+    },
+    lg: {},
+  },
   variants: {
-    light: {},
+    ...light,
+    ...dark,
+  },
+  defaultProps: {
+    size: 'md',
+    variant: 'light',
   },
 };
 
