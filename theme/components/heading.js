@@ -10,9 +10,9 @@ const Heading = {
     // H1, Spartan Light, 64px, 72px Line, -0,8 Character
     h1: {
       // you can also use responsive styles
-      fontSize: '64px',
+      fontSize: { base: '32px', lg: '64px' },
       fontWeight: 'light',
-      lineHeight: '72px',
+      lineHeight: { base: '40px', lg: '72px' },
       letterSpacing: '-0.8px',
       _hover: { color: 'blue' },
     },

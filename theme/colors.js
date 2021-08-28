@@ -5,8 +5,9 @@ const colors = {
   },
   secondary: {
     mirage: 'hsl(234, 30%, 13%)',
-    ebonyclay: 'hsl(218, 21%, 18%)',
+    ebonyclay: '#d4e2fc',
     shuttlegray: 'hsl(217, 14%, 42%)',
+    dinegray: '#181818',
   },
 };
 
