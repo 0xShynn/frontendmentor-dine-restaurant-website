@@ -1,5 +1,7 @@
-import { Box, Flex, Heading, Text, VStack } from '@chakra-ui/react';
+import { Box, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react';
 import Head from 'next/head';
+
+import CustomButton from '../components/CustomButton';
 
 export default function Home() {
   return (
@@ -12,6 +14,36 @@ export default function Home() {
 
       <Box role="main" maxW="800px" mx="auto" p="8">
         <VStack spacing="6" align="flex-start">
+          <HStack bg="black" spacing="4" w="full" p="10">
+            <CustomButton
+              title="Link baby"
+              url="/"
+              label="Button"
+              variant="dark"
+            />
+            <CustomButton
+              title="Link baby"
+              url="/"
+              label="Button"
+              variant="dark"
+              isDisabled
+            />
+          </HStack>
+          <HStack bg="gray.100" spacing="4" w="full" p="10">
+            <CustomButton
+              title="Link baby"
+              url="/"
+              label="Button"
+              variant="light"
+            />
+            <CustomButton
+              title="Link baby"
+              url="/"
+              label="Button"
+              variant="light"
+              isDisabled
+            />
+          </HStack>
           <Heading as="h1" variant="h1">
             H1. Exquisite dining since 1989
           </Heading>
