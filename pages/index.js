@@ -2,6 +2,7 @@ import { Box, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react';
 import Head from 'next/head';
 
 import CustomButton from '../components/CustomButton';
+import CustomLink from '../components/CustomLink';
 
 export default function Home() {
   return (
@@ -14,6 +15,17 @@ export default function Home() {
 
       <Box role="main" maxW="800px" mx="auto" p="8">
         <VStack spacing="6" align="flex-start">
+          <HStack bg="black" spacing="4" w="full" p="10">
+            <CustomLink href="/" variant="dark">
+              Book a table
+            </CustomLink>
+          </HStack>
+          <HStack bg="gray.100" spacing="4" w="full" p="10">
+            <CustomLink href="/" variant="light">
+              Book a table
+            </CustomLink>
+          </HStack>
+
           <HStack bg="black" spacing="4" w="full" p="10">
             <CustomButton
               title="Link baby"
