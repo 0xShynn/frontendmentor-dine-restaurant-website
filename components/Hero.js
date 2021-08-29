@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Img, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
 import DineLogo from '../assets/brand/DineLogo';
 
@@ -11,10 +11,12 @@ const Hero = () => {
         direction={{ base: 'column', lg: 'row' }}
         mx="auto"
         justify="space-between"
+        boxSizing="content-box"
+        ml={{ '2xl': '150px' }}
       >
         {/* Hero mobile image */}
         <Box display={{ lg: 'none' }}>
-          <Img
+          <Image
             sizes="(max-width: 1536px) 100vw, 1536px"
             srcSet="
               /images/hero-bg-mobile,w_280.jpg 280w,
@@ -31,17 +33,17 @@ const Hero = () => {
         {/* Hero content */}
         <Flex
           direction="column"
-          bg="gray.700"
-          py={{ base: 6, md: 10, lg: 16, xl: '65px' }}
+          py={{ base: 10, sm: 12, md: 16, lg: 20, xl: '65px' }}
+          px={{ base: 6, lg: 16, xl: '160px' }}
+          pr={{ lg: '0' }}
           mx={{ base: 'auto', lg: 0 }}
-          maxW={{ base: null, md: '600px', xl: '700px' }}
+          maxW={{ base: null, md: '500px', lg: '550px', xl: '500px' }}
+          boxSizing="content-box"
           align={{ base: 'center', lg: 'flex-start' }}
           textAlign={{ base: 'center', lg: 'left' }}
-          px={{ base: 6 }}
-          zIndex="1"
         >
           <Box
-            w={{ base: '83px', sm: '83px', md: '103px' }}
+            w={{ base: '83px', md: '103px' }}
             mb={{ base: 6, lg: 24, xl: '150px' }}
             mx={{ base: 'auto', md: 0 }}
           >
@@ -60,11 +62,8 @@ const Hero = () => {
         </Flex>
 
         {/* Desktop image */}
-        <Flex
-          display={{ base: 'none', lg: 'block' }}
-          w={{ md: '300px', lg: '400px', xl: '565px' }}
-        >
-          <Img
+        <Flex display={{ base: 'none', lg: 'flex' }}>
+          <Image
             sizes="(max-width: 1140px) 100vw, 1140px"
             srcSet="
               /images/hero-bg-desktop,w_768.jpg 768w,
@@ -74,6 +73,8 @@ const Hero = () => {
               /images/hero-bg-desktop,w_1140.jpg 1140w"
             src="/images/hero-bg-desktop,w_1140.jpg"
             alt="Dine hero image"
+            objectFit="cover"
+            h={{ lg: '575px', xl: '820px' }}
           />
         </Flex>
       </Flex>
