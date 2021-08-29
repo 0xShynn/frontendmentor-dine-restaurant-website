@@ -10,7 +10,7 @@ import CustomLink from './CustomLink';
 
 const Hero = () => {
   return (
-    <Box bg="primary.codgray" w="full" maxH="820px">
+    <Box bg="primary.codgray" w="full">
       <Flex
         direction={{ base: 'column', lg: 'row' }}
         mx="auto"
@@ -31,15 +31,15 @@ const Hero = () => {
         {/* Hero content */}
         <Flex
           direction="column"
-          py={{ base: 10, sm: 12, md: 16, lg: 20, xl: '65px' }}
-          px={{ base: 6, lg: 16, xl: '160px' }}
+          pt={{ base: 10, sm: 12, md: 16, lg: 20, xl: '65px' }}
+          pb={{ base: 10, sm: 12, md: 16, lg: 32, xl: '200px' }}
+          px={{ base: 6, lg: 20, xl: '160px' }}
           pr={{ lg: '0' }}
           mx={{ base: 'auto', lg: 0 }}
-          maxW={{ base: null, md: '500px', lg: '550px', xl: '500px' }}
+          maxW={{ base: null, md: '500px' }}
           boxSizing="content-box"
           align={{ base: 'center', lg: 'flex-start' }}
           textAlign={{ base: 'center', lg: 'left' }}
-          bg="gray.700"
         >
           <Box
             w={{ base: '83px', md: '103px' }}
@@ -65,7 +65,11 @@ const Hero = () => {
 
         {/* Hero bg image desktop */}
         <Flex justify="flex-end" w="full">
-          <Box display={{ base: 'none', lg: 'block' }} pos="relative" w="565px">
+          <Box
+            display={{ base: 'none', lg: 'block' }}
+            pos="relative"
+            w={{ lg: '565px', xl: '605px' }}
+          >
             <Image
               src={dishImageDesktop}
               alt="Dine hero tablet image"
