@@ -11,12 +11,7 @@ import MainAlt from './MainAlt';
 
 const MainContainer = () => {
   return (
-    <Flex
-      className="wesh"
-      w={{ xl: '1110px' }}
-      direction="column"
-      bg="gray.300"
-    >
+    <Flex className="wesh" w={{ xl: '1110px' }} direction="column">
       <MainAlt
         isFirst={true}
         imageSide="left"
@@ -28,7 +23,7 @@ const MainContainer = () => {
         title="Enjoyable place for all the family"
         text="Our relaxed surroundings make dining with us a great experience for everyone. We can even arrange a tour of the farm before your meal."
       />
-      <Box h="130px" />
+      <Box h={{ base: '90px', md: '130px', xl: '120px' }} />
       <MainAlt
         imageSide="right"
         imageDesktop={foodDesktop}
