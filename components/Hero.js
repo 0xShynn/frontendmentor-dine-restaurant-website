@@ -10,21 +10,39 @@ import CustomLink from './CustomLink';
 
 const Hero = () => {
   return (
-    <Box bg="primary.codgray" w="full">
+    <Box bg="primary.codgray" w="full" pos="relative">
+      {/* Hero bg image lg */}
+      <Box
+        display={{ base: 'none', lg: 'inline-flex', xl: 'none' }}
+        w="520px"
+        h="full"
+        pos="absolute"
+        bottom="0"
+        right="0"
+      >
+        <Image
+          src={dishImageDesktop}
+          alt="Dine hero desktop image"
+          objectFit="cover"
+          objectPosition="bottom"
+        />
+      </Box>
+
       <Flex
         direction={{ base: 'column', lg: 'row' }}
         mx="auto"
         justify="space-between"
         boxSizing="content-box"
         ml={{ '2xl': '150px' }}
+        maxW={{ lg: '960px', xl: '1110px' }}
       >
         {/* Hero bg image mobile */}
-        <Box display={{ md: 'none' }}>
+        <Box display={{ base: 'inline-flex', md: 'none' }}>
           <Image src={dishImageMobile} alt="Dine hero mobile image" />
         </Box>
 
         {/* Hero bg image tablet */}
-        <Box display={{ base: 'none', md: 'block', lg: 'none' }}>
+        <Box display={{ base: 'none', md: 'inline-flex', lg: 'none' }}>
           <Image src={dishImageTablet} alt="Dine hero tablet image" />
         </Box>
 
@@ -59,7 +77,7 @@ const Hero = () => {
             variant="h1"
             color="white"
             mb="6"
-            maxW={{ md: '400px', lg: '600px', xl: '900px' }}
+            maxW={{ md: '400px', lg: '500px', xl: '900px' }}
           >
             Exquisite dining since 1989
           </Heading>
@@ -74,8 +92,7 @@ const Hero = () => {
           </CustomLink>
         </Flex>
 
-        {/* Hero bg image desktop */}
-        <Flex justify="flex-end" w="full">
+        {/* <Flex justify="flex-end" w="full">
           <Box
             display={{ base: 'none', lg: 'block' }}
             pos="relative"
@@ -89,7 +106,7 @@ const Hero = () => {
               layout="fill"
             />
           </Box>
-        </Flex>
+        </Flex> */}
       </Flex>
     </Box>
   );
