@@ -77,6 +77,20 @@ const MainBox = ({
             display={{ base: 'block', md: 'none', lg: 'block', xl: 'none' }}
           >
             <NextImage src={imageMobile} alt={alt} />
+            {!isLeftImage && (
+              <Box
+                pos="absolute"
+                top="50px"
+                right="-70px"
+                display={{ base: 'none', md: 'none', lg: 'block' }}
+              >
+                <NextImage
+                  src="/images/pattern-lines.svg"
+                  width="160px"
+                  height="76px"
+                />
+              </Box>
+            )}
           </Box>
 
           {/* tablet version (md) */}
@@ -94,6 +108,15 @@ const MainBox = ({
             zIndex="1"
           >
             <NextImage src={imageTablet} alt={alt} />
+            {!isLeftImage && (
+              <Box pos="absolute" bottom="50px" right="-60px">
+                <NextImage
+                  src="/images/pattern-lines.svg"
+                  width="160px"
+                  height="76px"
+                />
+              </Box>
+            )}
           </Box>
 
           {/* desktop version (xl) */}
@@ -108,6 +131,15 @@ const MainBox = ({
             zIndex="overlay"
           >
             <NextImage src={imageDesktop} alt="Enjoyable place image mobile" />
+            {!isLeftImage && (
+              <Box pos="absolute" top="280px" right="-110px">
+                <NextImage
+                  src="/images/pattern-lines.svg"
+                  width="160px"
+                  height="76px"
+                />
+              </Box>
+            )}
           </Box>
         </Flex>
 
