@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
 import PatternDivider from './patterns/PatternDivider';
 
@@ -17,16 +17,43 @@ const MainBox = ({
   const mobileOffsetY = 75;
   const tabletOffsetY = 100;
   const desktopOffsetY = 70;
+  const isLeftImage = imageSide === 'left';
 
   return (
-    <Box maxW="1110px" mx="auto" bg="blue.100" w="full">
+    <Box mx="auto" w="full" pos="relative">
+      {imageBackground && (
+        <Box
+          w="full"
+          pos="absolute"
+          zIndex="hide"
+          h={{ lg: '600px', xl: isLeftImage ? '600px' : '650px' }}
+          bgImage="/images/pattern-curve-top-right.svg"
+          bgRepeat="no-repeat"
+          bgSize={{
+            lg: '60%',
+            xl: isLeftImage ? '895px 320px' : '895px 650px',
+          }}
+          bgPos={{
+            base: '0 0',
+            sm: '80px -50px',
+            md: '450px -150px',
+            lg: isLeftImage ? '-50px 50px' : '-50px 50px',
+            xl: isLeftImage ? '0 280px' : '0 170px',
+          }}
+          transform={isLeftImage ? 0 : 'rotate(1turn) scale(-1, 1)'}
+        />
+      )}
+
       <Flex
         direction={{
           base: 'column',
-          lg: imageSide === 'left' ? 'row' : 'row-reverse',
+          lg: isLeftImage ? 'row' : 'row-reverse',
         }}
         justify="space-between"
         px={{ base: 6, md: 10, lg: 20, xl: 0 }}
+        pos="relative"
+        maxW={{ lg: '960px', xl: '1110px' }}
+        mx="auto"
       >
         {/* Image */}
         <Flex justify="center">
@@ -44,7 +71,7 @@ const MainBox = ({
             }}
             display={{ base: 'block', md: 'none', lg: 'block', xl: 'none' }}
           >
-            <Image src={imageMobile} alt={alt} />
+            <NextImage src={imageMobile} alt={alt} />
           </Box>
 
           {/* tablet version (md) */}
@@ -59,21 +86,23 @@ const MainBox = ({
                 : imageTablet.height / 2
             }
             display={{ base: 'none', md: 'block', lg: 'none' }}
+            zIndex="1"
           >
-            <Image src={imageTablet} alt={alt} />
+            <NextImage src={imageTablet} alt={alt} />
           </Box>
 
           {/* desktop version (xl) */}
           <Box
             shadow="2xl"
             pos="relative"
-            top={imageSide === 'left' ? -desktopOffsetY : 0}
-            bottom={imageSide === 'left' ? 0 : desktopOffsetY}
+            top={isLeftImage ? -desktopOffsetY : 0}
+            bottom={isLeftImage ? 0 : desktopOffsetY}
             w={imageDesktop.width / 2}
             h={imageDesktop.height / 2 - desktopOffsetY}
             display={{ base: 'none', xl: 'block' }}
+            zIndex="overlay"
           >
-            <Image src={imageDesktop} alt="Enjoyable place image mobile" />
+            <NextImage src={imageDesktop} alt="Enjoyable place image mobile" />
           </Box>
         </Flex>
 
@@ -83,15 +112,19 @@ const MainBox = ({
           align={{ base: 'center', lg: 'flex-start' }}
           justify="center"
           textAlign={{ base: 'center', lg: 'left' }}
-          pl={{ lg: imageSide === 'left' ? '60px' : 0 }}
-          bg="yellow.100"
+          pl={{ lg: isLeftImage ? '60px' : 0 }}
+          mb={{ md: !isLeftImage ? '120px' : 0, lg: !isLeftImage ? '60px' : 0 }}
+          zIndex="overlay"
         >
           <PatternDivider />
-          <Box maxW={{ base: '375px', xl: '445px' }} bg="red.100">
-            <Heading as="h2" variant="h2" color="primary.codgray">
+          <Box maxW={{ base: '375px', xl: '445px' }}>
+            <Heading as="h2" variant="h2" color="primary.codgray" maxW="400px">
               {title}
             </Heading>
-            <Text textStyle="body2" color="primary.codgray">
+            <Text
+              textStyle={{ base: 'body2', xl: 'body1' }}
+              color="primary.codgray"
+            >
               {text}
             </Text>
           </Box>

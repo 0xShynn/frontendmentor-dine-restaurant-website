@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Flex role="main" direction="column" align="center" className="hello">
+      <Flex role="main" direction="column" align="center">
         <Hero />
         <MainContainer />
         <Box bg="green.100" w="full" h="300px">

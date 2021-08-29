@@ -11,7 +11,7 @@ import MainBox from './MainBox';
 
 const MainContainer = () => {
   return (
-    <Flex className="wesh" w={{ xl: '1110px' }} direction="column">
+    <Flex w="full" direction="column">
       <MainBox
         isFirst={true}
         imageSide="left"
