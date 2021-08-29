@@ -4,6 +4,7 @@ import PatternDivider from '../components/patterns/PatternDivider';
 
 import Hero from '../components/Hero';
 import Main from '../components/Main';
+import MainAlt from '../components/MainAlt';
 
 export default function Home() {
   return (
@@ -16,7 +17,8 @@ export default function Home() {
 
       <Flex role="main" direction="column" align="center">
         <Hero />
-        <Main />
+        <MainAlt />
+        {/* <Main /> */}
       </Flex>
     </Box>
   );

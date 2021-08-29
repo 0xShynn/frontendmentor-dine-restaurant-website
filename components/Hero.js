@@ -43,8 +43,6 @@ const Hero = () => {
           px={{ base: 6, lg: 20, xl: '160px' }}
           pr={{ lg: '0' }}
           mx={{ base: 'auto', lg: 0 }}
-          maxW={{ base: null, md: '500px' }}
-          boxSizing="content-box"
           align={{ base: 'center', lg: 'flex-start' }}
           textAlign={{ base: 'center', lg: 'left' }}
         >

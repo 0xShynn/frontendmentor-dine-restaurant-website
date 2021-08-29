@@ -41,7 +41,7 @@ const Main = () => {
         <Box
           display={{ base: 'none', sm: 'block', md: 'none' }}
           shadow="2xl"
-          pos="absolute"
+          pos="relative"
           width={placeMobileSize.width}
           height={placeMobileSize.height}
           top={-`${placeMobileSize.offsetY}`}
