@@ -1,46 +1,75 @@
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 
-import enjoyablePlaceDesktop from '../assets/homepage/enjoyable-place-desktop@2x.jpg';
-import enjoyablePlaceMobile from '../assets/homepage/enjoyable-place-mobile@2x.jpg';
-import enjoyablePlacePlaceholder from '../assets/homepage/enjoyable-place-placeholder.png';
-import enjoyablePlaceTablet from '../assets/homepage/enjoyable-place-tablet@2x.jpg';
+import placeDesktop from '../assets/homepage/enjoyable-place-desktop@2x.jpg';
+import placeMobile from '../assets/homepage/enjoyable-place-mobile@2x.jpg';
+import placeTablet from '../assets/homepage/enjoyable-place-tablet@2x.jpg';
+
+import PatternDivider from './patterns/PatternDivider';
 
 const Main = () => {
+  const placeMobileSize = {
+    width: 327,
+    height: 400,
+    offsetY: 75,
+  };
+  const placeTabletSize = {
+    width: 573,
+    height: 360,
+    offsetY: 100,
+  };
+  const placeDesktopSize = {
+    width: 540,
+    height: 520,
+    offsetY: 70,
+  };
+
   return (
-    <Box maxW="1140px" bg="blue.100" pos="relative" mx="auto" w="full">
-      <Box pos="absolute" w="full" top="-75px" px={{ base: '6', md: '100px' }}>
-        <Box shadow="2xl" display={{ md: 'none' }}>
-          <Image
-            src={enjoyablePlaceMobile}
-            alt="Enjoyable place image mobile"
-            layout="responsive"
-          />
+    <Box maxW="1140px" pos="relative" mx="auto" w="full">
+      <Flex px={{ base: '6', md: '100px' }} justify="center">
+        <Box
+          display={{ md: 'none' }}
+          shadow="2xl"
+          pos="absolute"
+          width={placeMobileSize.width}
+          height={placeMobileSize.height}
+          top={-`${placeMobileSize.offsetY}`}
+        >
+          <Image src={placeMobile} alt="Enjoyable place image mobile" />
         </Box>
 
-        <Box display={{ base: 'none', md: 'block', xl: 'none' }}>
-          <Image
-            src={enjoyablePlaceTablet}
-            alt="Enjoyable place image tablet"
-            layout="responsive"
-          />
+        <Box
+          display={{ base: 'none', md: 'block', lg: 'none' }}
+          shadow="2xl"
+          pos="absolute"
+          width={placeTabletSize.width}
+          height={placeTabletSize.height}
+          top={-`${placeTabletSize.offsetY}`}
+        >
+          <Image src={placeTablet} alt="Enjoyable place image mobile" />
         </Box>
-        <Box display={{ base: 'none', xl: 'block' }}>
-          <Image
-            src={enjoyablePlaceDesktop}
-            alt="Enjoyable place image desktop"
-            layout="responsive"
-            className="hello"
-          />
-        </Box>
-      </Box>
-      <Box bg="green.100">
-        <Image
-          src={enjoyablePlacePlaceholder}
-          role="presentation"
-          alt="enjoy"
-          layout="responsive"
-        />
+      </Flex>
+
+      <Box
+        w="full"
+        height={{
+          sm: placeMobileSize.height - placeMobileSize.offsetY,
+          md: placeTabletSize.height - placeTabletSize.offsetY,
+          xl: placeDesktopSize.height - placeDesktopSize.offsetY,
+        }}
+        bg="red.100"
+      />
+
+      <PatternDivider />
+
+      <Box textAlign="center" px="6">
+        <Heading as="h2" variant="h2">
+          Enjoyable place for all the family
+        </Heading>
+        <Text textStyle="body2">
+          Our relaxed surroundings make dining with us a great experience for
+          everyone. We can even arrange a tour of the farm before your meal.
+        </Text>
       </Box>
     </Box>
   );
