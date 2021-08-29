@@ -27,8 +27,15 @@ const Main = () => {
   return (
     <Box maxW="1140px" pos="relative" mx="auto" w="full">
       <Flex px={{ base: '6', md: '100px' }} justify="center">
+        <Box display={{ sm: 'none' }} bg="blue" w="full" mt="6">
+          <Image
+            src={placeMobile}
+            alt="Enjoyable place image mobile"
+            layout="responsive"
+          />
+        </Box>
         <Box
-          display={{ md: 'none' }}
+          display={{ base: 'none', sm: 'block', md: 'none' }}
           shadow="2xl"
           pos="absolute"
           width={placeMobileSize.width}
