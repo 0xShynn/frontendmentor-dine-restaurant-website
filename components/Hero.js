@@ -13,12 +13,13 @@ const Hero = () => {
     <Box bg="primary.codgray" w="full" pos="relative">
       {/* Hero bg image lg */}
       <Box
-        display={{ base: 'none', lg: 'inline-flex', xl: 'none' }}
-        w="520px"
+        display={{ base: 'none', lg: 'inline-flex' }}
+        w={{ lg: '520px', xl: '550px' }}
         h="full"
         pos="absolute"
         bottom="0"
         right="0"
+        zIndex="base"
       >
         <Image
           src={dishImageDesktop}
@@ -33,7 +34,6 @@ const Hero = () => {
         mx="auto"
         justify="space-between"
         boxSizing="content-box"
-        ml={{ '2xl': '150px' }}
         maxW={{ lg: '960px', xl: '1110px' }}
       >
         {/* Hero bg image mobile */}
@@ -58,11 +58,12 @@ const Hero = () => {
             lg: '220px',
             xl: '200px',
           }}
-          pl={{ base: 6, lg: 20, xl: '160px' }}
+          pl={{ base: 6, lg: 20, xl: 0 }}
           pr={{ base: 6, lg: '0', xl: '0' }}
           mx={{ base: 'auto', lg: 0 }}
           align={{ base: 'center', lg: 'flex-start' }}
           textAlign={{ base: 'center', lg: 'left' }}
+          zIndex="docked"
         >
           <Box
             w={{ base: '83px', md: '103px' }}
@@ -77,7 +78,7 @@ const Hero = () => {
             variant="h1"
             color="white"
             mb="6"
-            maxW={{ md: '400px', lg: '500px', xl: '900px' }}
+            maxW={{ md: '400px', lg: '500px', xl: '600px' }}
           >
             Exquisite dining since 1989
           </Heading>
@@ -91,22 +92,6 @@ const Hero = () => {
             Book a table
           </CustomLink>
         </Flex>
-
-        {/* <Flex justify="flex-end" w="full">
-          <Box
-            display={{ base: 'none', lg: 'block' }}
-            pos="relative"
-            w={{ lg: '565px', xl: '605px' }}
-          >
-            <Image
-              src={dishImageDesktop}
-              alt="Dine hero tablet image"
-              objectFit="contain"
-              objectPosition="right"
-              layout="fill"
-            />
-          </Box>
-        </Flex> */}
       </Flex>
     </Box>
   );

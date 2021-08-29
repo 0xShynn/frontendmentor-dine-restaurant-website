@@ -74,7 +74,13 @@ const MainBox = ({
                 : imageMobile.height / 2,
               lg: imageMobile.height / 2 - mobileOffsetY,
             }}
-            display={{ base: 'block', md: 'none', lg: 'block', xl: 'none' }}
+            display={{
+              base: 'inline-flex',
+              sm: 'block',
+              md: 'none',
+              lg: 'block',
+              xl: 'none',
+            }}
           >
             <NextImage src={imageMobile} alt={alt} />
             {!isLeftImage && (
