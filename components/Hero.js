@@ -1,6 +1,10 @@
-import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import Image from 'next/image';
 
 import DineLogo from '../assets/brand/DineLogo';
+import dishImageDesktop from '../assets/homepage/hero-bg-desktop@2x.jpg';
+import dishImageMobile from '../assets/homepage/hero-bg-mobile@2x.jpg';
+import dishImageTablet from '../assets/homepage/hero-bg-tablet@2x.jpg';
 
 import CustomLink from './CustomLink';
 
@@ -14,20 +18,14 @@ const Hero = () => {
         boxSizing="content-box"
         ml={{ '2xl': '150px' }}
       >
-        {/* Hero mobile image */}
-        <Box display={{ lg: 'none' }}>
-          <Image
-            sizes="(max-width: 1536px) 100vw, 1536px"
-            srcSet="
-              /images/hero-bg-mobile,w_280.jpg 280w,
-              /images/hero-bg-mobile,w_656.jpg 656w,
-              /images/hero-bg-mobile,w_933.jpg 933w,
-              /images/hero-bg-mobile,w_1184.jpg 1184w,
-              /images/hero-bg-mobile,w_1536.jpg 1536w"
-            src="/images/hero-bg-mobile,w_1536.jpg"
-            alt="Dine hero image"
-            zIndex="0"
-          />
+        {/* Hero bg image mobile */}
+        <Box display={{ md: 'none' }}>
+          <Image src={dishImageMobile} alt="Dine hero mobile image" />
+        </Box>
+
+        {/* Hero bg image tablet */}
+        <Box display={{ base: 'none', md: 'block', lg: 'none' }}>
+          <Image src={dishImageTablet} alt="Dine hero tablet image" />
         </Box>
 
         {/* Hero content */}
@@ -41,6 +39,7 @@ const Hero = () => {
           boxSizing="content-box"
           align={{ base: 'center', lg: 'flex-start' }}
           textAlign={{ base: 'center', lg: 'left' }}
+          bg="gray.700"
         >
           <Box
             w={{ base: '83px', md: '103px' }}
@@ -49,33 +48,32 @@ const Hero = () => {
           >
             <DineLogo />
           </Box>
+
           <Heading as="h1" variant="h1" color="white" mb="6">
             Exquisite dining since 1989
           </Heading>
+
           <Text color="white" textStyle="body2" mb="6">
             Experience our seasonal menu in beautiful country surroundings. Eat
             the freshest produce from the comfort of our farmhouse.
           </Text>
+
           <CustomLink variant="dark" href="/">
             Book a table
           </CustomLink>
         </Flex>
 
-        {/* Desktop image */}
-        <Flex display={{ base: 'none', lg: 'flex' }}>
-          <Image
-            sizes="(max-width: 1140px) 100vw, 1140px"
-            srcSet="
-              /images/hero-bg-desktop,w_768.jpg 768w,
-              /images/hero-bg-desktop,w_859.jpg 859w,
-              /images/hero-bg-desktop,w_937.jpg 937w,
-              /images/hero-bg-desktop,w_1050.jpg 1050w,
-              /images/hero-bg-desktop,w_1140.jpg 1140w"
-            src="/images/hero-bg-desktop,w_1140.jpg"
-            alt="Dine hero image"
-            objectFit="cover"
-            h={{ lg: '575px', xl: '820px' }}
-          />
+        {/* Hero bg image desktop */}
+        <Flex justify="flex-end" w="full">
+          <Box display={{ base: 'none', lg: 'block' }} pos="relative" w="565px">
+            <Image
+              src={dishImageDesktop}
+              alt="Dine hero tablet image"
+              objectFit="contain"
+              objectPosition="right"
+              layout="fill"
+            />
+          </Box>
         </Flex>
       </Flex>
     </Box>
