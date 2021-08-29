@@ -26,17 +26,22 @@ const MainBox = ({
           w="full"
           pos="absolute"
           zIndex="hide"
-          h={{ lg: '600px', xl: isLeftImage ? '600px' : '650px' }}
+          h={{
+            md: isLeftImage ? '490px' : '770px',
+            lg: '600px',
+            xl: isLeftImage ? '600px' : '650px',
+          }}
           bgImage="/images/pattern-curve-top-right.svg"
           bgRepeat="no-repeat"
           bgSize={{
+            md: '100%',
             lg: '60%',
             xl: isLeftImage ? '895px 320px' : '895px 650px',
           }}
           bgPos={{
             base: '0 0',
             sm: '80px -50px',
-            md: '450px -150px',
+            md: isLeftImage ? '-380px 200px' : '-380px 490px',
             lg: isLeftImage ? '-50px 50px' : '-50px 50px',
             xl: isLeftImage ? '0 280px' : '0 170px',
           }}
