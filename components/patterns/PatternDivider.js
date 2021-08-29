@@ -4,7 +4,7 @@ import { Box, Flex } from '@chakra-ui/react';
 
 function PatternDivider(props) {
   return (
-    <Flex justify="center">
+    <Flex justify={{ base: 'center', xl: 'left' }}>
       <Box w="71px" py="45px">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 7" {...props}>
           <g fill="none" fillRule="evenodd">

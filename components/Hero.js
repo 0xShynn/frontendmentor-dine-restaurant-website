@@ -32,7 +32,14 @@ const Hero = () => {
         <Flex
           direction="column"
           pt={{ base: 10, sm: 12, md: 16, lg: 20, xl: '65px' }}
-          pb={{ base: '130px', sm: '150px', md: '220px', lg: 32, xl: '200px' }}
+          // padding for the main images
+          pb={{
+            base: '130px',
+            sm: '150px',
+            md: '220px',
+            lg: '220px',
+            xl: '200px',
+          }}
           px={{ base: 6, lg: 20, xl: '160px' }}
           pr={{ lg: '0' }}
           mx={{ base: 'auto', lg: 0 }}

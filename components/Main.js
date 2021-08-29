@@ -20,13 +20,16 @@ const Main = () => {
   };
   const placeDesktopSize = {
     width: 540,
-    height: 520,
+    height: 720,
     offsetY: 70,
   };
 
   return (
-    <Box maxW="1140px" pos="relative" mx="auto" w="full">
-      <Flex px={{ base: '6', md: '100px' }} justify="center">
+    <Box maxW="1110px" pos="relative" mx="auto" bg="blue.100">
+      <Flex
+        px={{ base: '6', md: '100px', lg: '40px', xl: '0' }}
+        justify={{ base: 'center', lg: 'flex-start' }}
+      >
         <Box display={{ sm: 'none' }} bg="blue" w="full" mt="6">
           <Image
             src={placeMobile}
@@ -34,6 +37,7 @@ const Main = () => {
             layout="responsive"
           />
         </Box>
+
         <Box
           display={{ base: 'none', sm: 'block', md: 'none' }}
           shadow="2xl"
@@ -55,29 +59,74 @@ const Main = () => {
         >
           <Image src={placeTablet} alt="Enjoyable place image mobile" />
         </Box>
+
+        <Box
+          display={{ base: 'none', lg: 'block' }}
+          shadow="2xl"
+          pos="absolute"
+          width={placeDesktopSize.width}
+          height={placeDesktopSize.height}
+          top={-`${placeDesktopSize.offsetY}`}
+        >
+          <Image src={placeDesktop} alt="Enjoyable place image mobile" />
+        </Box>
       </Flex>
 
-      <Box
-        w="full"
-        height={{
-          sm: placeMobileSize.height - placeMobileSize.offsetY,
-          md: placeTabletSize.height - placeTabletSize.offsetY,
-          xl: placeDesktopSize.height - placeDesktopSize.offsetY,
-        }}
-        bg="red.100"
-      />
+      {/* Mobile view */}
+      <Box display={{ xl: 'none' }}>
+        <Box
+          w="full"
+          height={{
+            sm: placeMobileSize.height - placeMobileSize.offsetY,
+            md: placeTabletSize.height - placeTabletSize.offsetY,
+          }}
+          bg="red.100"
+        />
 
-      <PatternDivider />
-
-      <Box textAlign="center" px="6">
-        <Heading as="h2" variant="h2">
-          Enjoyable place for all the family
-        </Heading>
-        <Text textStyle="body2">
-          Our relaxed surroundings make dining with us a great experience for
-          everyone. We can even arrange a tour of the farm before your meal.
-        </Text>
+        {/* Mobile text container */}
+        <Box>
+          <PatternDivider />
+          <Box textAlign="center" px="6">
+            <Heading as="h2" variant="h2">
+              Enjoyable place for all the family
+            </Heading>
+            <Text textStyle="body2">
+              Our relaxed surroundings make dining with us a great experience
+              for everyone. We can even arrange a tour of the farm before your
+              meal.
+            </Text>
+          </Box>
+        </Box>
       </Box>
+
+      {/* Desktop view */}
+      <Flex
+        bg="green.200"
+        direction="row"
+        display={{ base: 'none', xl: 'flex' }}
+        pb="60px"
+      >
+        <Box
+          h={placeDesktopSize.height - placeDesktopSize.offsetY}
+          bg="red.300"
+          w={placeDesktopSize.width}
+        />
+
+        {/* Desktop text container */}
+        <Box bg="red.100" w="570px" pl="120px" py="120px">
+          <PatternDivider />
+          <Box textAlign="left" bg="blue.100">
+            <Heading as="h2" variant="h2" w="390px" bg="yellow.100">
+              Enjoyable place for all the family
+            </Heading>
+            <Text textStyle={{ base: 'body2', xl: 'body1' }}>
+              Our relaxed surroundings make dining with us a great experience
+              for everyone. We can even arrange a tour of the farm before your
+              meal.
+            </Text>
+          </Box>
+        </Box>
+      </Flex>
     </Box>
   );
 };
