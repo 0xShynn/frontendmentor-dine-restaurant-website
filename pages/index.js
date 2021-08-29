@@ -1,10 +1,8 @@
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import Head from 'next/head';
-import PatternDivider from '../components/patterns/PatternDivider';
 
 import Hero from '../components/Hero';
-import Main from '../components/Main';
-import MainAlt from '../components/MainAlt';
+import MainContainer from '../components/MainContainer';
 
 export default function Home() {
   return (
@@ -15,10 +13,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Flex role="main" direction="column" align="center">
+      <Flex role="main" direction="column" align="center" className="hello">
         <Hero />
-        <MainAlt />
-        {/* <Main /> */}
+        <MainContainer />
+        <Box bg="green.100" w="full" h="300px">
+          Hello
+        </Box>
       </Flex>
     </Box>
   );
