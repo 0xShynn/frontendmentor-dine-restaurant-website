@@ -18,10 +18,11 @@ const Heading = {
     },
     // H2, Spartan Bold, 40px, 56px Line, -0,5 Character
     h2: {
-      fontSize: '40px',
+      fontSize: { base: '32px', xl: '40px' },
       fontWeight: 'bold',
-      lineHeight: '56px',
+      lineHeight: { base: '40px', xl: '56px' },
       letterSpacing: '-0.5px',
+      mb: '20px',
     },
     // H3 (L), Spartan Bold, 18px, 28px Line -0,22 Character
     h3l: {
