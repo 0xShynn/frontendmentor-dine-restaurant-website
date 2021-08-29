@@ -40,8 +40,8 @@ const Hero = () => {
             lg: '220px',
             xl: '200px',
           }}
-          px={{ base: 6, lg: 20, xl: '160px' }}
-          pr={{ lg: '0' }}
+          pl={{ base: 6, lg: 20, xl: '160px' }}
+          pr={{ base: 6, lg: '0', xl: '0' }}
           mx={{ base: 'auto', lg: 0 }}
           align={{ base: 'center', lg: 'flex-start' }}
           textAlign={{ base: 'center', lg: 'left' }}
@@ -54,11 +54,17 @@ const Hero = () => {
             <DineLogo />
           </Box>
 
-          <Heading as="h1" variant="h1" color="white" mb="6">
+          <Heading
+            as="h1"
+            variant="h1"
+            color="white"
+            mb="6"
+            maxW={{ md: '400px', lg: '600px', xl: '900px' }}
+          >
             Exquisite dining since 1989
           </Heading>
 
-          <Text color="white" textStyle="body2" mb="6">
+          <Text color="white" textStyle="body2" mb="6" maxW="400px">
             Experience our seasonal menu in beautiful country surroundings. Eat
             the freshest produce from the comfort of our farmhouse.
           </Text>
