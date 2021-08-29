@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import PatternDivider from './patterns/PatternDivider';
 
-const MainAlt = ({
+const MainBox = ({
   isFirst,
   imageSide,
   imageDesktop,
@@ -100,4 +100,4 @@ const MainAlt = ({
   );
 };
 
-export default MainAlt;
+export default MainBox;

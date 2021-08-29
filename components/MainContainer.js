@@ -7,12 +7,12 @@ import foodDesktop from '../assets/homepage/locally-sourced-desktop@2x.jpg';
 import foodMobile from '../assets/homepage/locally-sourced-mobile@2x.jpg';
 import foodTablet from '../assets/homepage/locally-sourced-tablet@2x.jpg';
 
-import MainAlt from './MainAlt';
+import MainBox from './MainBox';
 
 const MainContainer = () => {
   return (
     <Flex className="wesh" w={{ xl: '1110px' }} direction="column">
-      <MainAlt
+      <MainBox
         isFirst={true}
         imageSide="left"
         imageDesktop={placeDesktop}
@@ -24,7 +24,7 @@ const MainContainer = () => {
         text="Our relaxed surroundings make dining with us a great experience for everyone. We can even arrange a tour of the farm before your meal."
       />
       <Box h={{ base: '90px', md: '130px', xl: '120px' }} />
-      <MainAlt
+      <MainBox
         imageSide="right"
         imageDesktop={foodDesktop}
         imageMobile={foodMobile}
