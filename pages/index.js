@@ -2,6 +2,7 @@ import { Box, Flex } from '@chakra-ui/react';
 import Head from 'next/head';
 
 import Hero from '../components/Hero';
+import Main from '../components/Main';
 
 export default function Home() {
   return (
@@ -12,8 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Flex role="main" bg="red.200">
+      <Flex role="main" bg="red.200" direction="column">
         <Hero />
+        <Main />
       </Flex>
     </Box>
   );
