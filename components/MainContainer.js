@@ -18,6 +18,7 @@ const MainContainer = () => {
       bg="gray.300"
     >
       <MainAlt
+        isFirst={true}
         imageSide="left"
         imageDesktop={placeDesktop}
         imageMobile={placeMobile}

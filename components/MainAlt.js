@@ -4,6 +4,7 @@ import Image from 'next/image';
 import PatternDivider from './patterns/PatternDivider';
 
 const MainAlt = ({
+  isFirst,
   imageSide,
   imageDesktop,
   imageMobile,
@@ -33,9 +34,13 @@ const MainAlt = ({
           <Box
             shadow="2xl"
             pos="relative"
-            top={-mobileOffsetY}
+            top={isFirst ? -mobileOffsetY : 0}
             w={imageMobile.width / 2}
-            h={imageMobile.height / 2 - mobileOffsetY}
+            h={
+              isFirst
+                ? imageMobile.height / 2 - mobileOffsetY
+                : imageMobile.height / 2
+            }
             display={{ base: 'block', md: 'none', lg: 'block', xl: 'none' }}
           >
             <Image src={imageMobile} alt={alt} />
@@ -45,9 +50,13 @@ const MainAlt = ({
           <Box
             shadow="2xl"
             pos="relative"
-            top={-tabletOffsetY}
+            top={isFirst ? -tabletOffsetY : 0}
             w={imageTablet.width / 2}
-            h={imageTablet.height / 2 - tabletOffsetY}
+            h={
+              isFirst
+                ? imageTablet.height / 2 - tabletOffsetY
+                : imageTablet.height / 2
+            }
             display={{ base: 'none', md: 'block', lg: 'none' }}
           >
             <Image src={imageTablet} alt={alt} />
