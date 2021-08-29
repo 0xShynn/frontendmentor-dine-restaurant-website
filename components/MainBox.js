@@ -36,11 +36,12 @@ const MainBox = ({
             pos="relative"
             top={isFirst ? -mobileOffsetY : 0}
             w={imageMobile.width / 2}
-            h={
-              isFirst
+            h={{
+              sm: isFirst
                 ? imageMobile.height / 2 - mobileOffsetY
-                : imageMobile.height / 2
-            }
+                : imageMobile.height / 2,
+              lg: imageMobile.height / 2 - mobileOffsetY,
+            }}
             display={{ base: 'block', md: 'none', lg: 'block', xl: 'none' }}
           >
             <Image src={imageMobile} alt={alt} />
@@ -62,7 +63,7 @@ const MainBox = ({
             <Image src={imageTablet} alt={alt} />
           </Box>
 
-          {/* desktop version (lg) */}
+          {/* desktop version (xl) */}
           <Box
             shadow="2xl"
             pos="relative"
@@ -82,7 +83,7 @@ const MainBox = ({
           align={{ base: 'center', lg: 'flex-start' }}
           justify="center"
           textAlign={{ base: 'center', lg: 'left' }}
-          pl={{ lg: '60px' }}
+          pl={{ lg: imageSide === 'left' ? '60px' : 0 }}
           bg="yellow.100"
         >
           <PatternDivider />
