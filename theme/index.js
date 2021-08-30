@@ -3,10 +3,10 @@ import { extendTheme } from '@chakra-ui/react';
 
 import breakpoints from './breakpoints';
 import colors from './colors';
-import button from './components/button';
-import heading from './components/heading';
-import link from './components/link';
-import text from './components/text';
+import Button from './components/button';
+import Heading from './components/heading';
+import Link from './components/link';
+import Text from './components/text';
 import fonts from './fonts';
 import styles from './styles';
 import textStyles from './textStyles';
@@ -18,10 +18,10 @@ const overrides = {
   fonts,
   textStyles,
   components: {
-    button,
-    heading,
-    link,
-    text,
+    Button,
+    Heading,
+    Link,
+    Text,
   },
 };
 
