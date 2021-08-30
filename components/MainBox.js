@@ -56,6 +56,7 @@ const MainBox = ({
         }}
         justify="space-between"
         px={{ base: 6, md: 10, lg: 20, xl: 0 }}
+        py={{ base: 12, sm: 0 }}
         pos="relative"
         maxW={{ lg: '960px', xl: '1110px' }}
         mx="auto"
@@ -66,9 +67,13 @@ const MainBox = ({
           <Box
             shadow="2xl"
             pos="relative"
-            top={isFirst ? -mobileOffsetY : 0}
+            top={{
+              base: 0,
+              sm: isFirst ? -mobileOffsetY : 0,
+            }}
             w={imageMobile.width / 2}
             h={{
+              base: imageMobile / 2,
               sm: isFirst
                 ? imageMobile.height / 2 - mobileOffsetY
                 : imageMobile.height / 2,

@@ -2,6 +2,7 @@ import { Box, Flex } from '@chakra-ui/react';
 import Head from 'next/head';
 
 import Hero from '../components/Hero';
+import HighlightsContainer from '../components/HighlightsContainer';
 import MainContainer from '../components/MainContainer';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Flex role="main" direction="column" align="center">
         <Hero />
         <MainContainer />
+        <HighlightsContainer />
         <Box bg="green.100" w="full" h="300px">
           Hello
         </Box>

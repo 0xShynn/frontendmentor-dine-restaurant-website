@@ -52,7 +52,7 @@ const Hero = () => {
           pt={{ base: 10, sm: 12, md: 16, lg: 20, xl: '65px' }}
           // padding for the main images
           pb={{
-            base: '130px',
+            base: '60px',
             sm: '150px',
             md: '220px',
             lg: '220px',

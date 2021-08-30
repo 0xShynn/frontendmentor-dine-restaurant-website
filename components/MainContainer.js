@@ -7,12 +7,11 @@ import foodDesktop from '../assets/homepage/locally-sourced-desktop@2x.jpg';
 import foodMobile from '../assets/homepage/locally-sourced-mobile@2x.jpg';
 import foodTablet from '../assets/homepage/locally-sourced-tablet@2x.jpg';
 
-import Highlights from './Highlights';
 import MainBox from './MainBox';
 
 const MainContainer = () => {
   return (
-    <Flex w="full" direction="column">
+    <Flex w="full" direction="column" py={{ base: 8, sm: 0 }}>
       <MainBox
         isFirst={true}
         imageSide="left"
@@ -24,7 +23,7 @@ const MainContainer = () => {
         title="Enjoyable place for all the family"
         text="Our relaxed surroundings make dining with us a great experience for everyone. We can even arrange a tour of the farm before your meal."
       />
-      <Box h={{ base: '90px', md: '130px', xl: '120px' }} />
+      <Box h={{ base: '0', sm: '90px', md: '130px', xl: '120px' }} />
       <MainBox
         imageSide="right"
         imageDesktop={foodDesktop}
@@ -35,7 +34,6 @@ const MainContainer = () => {
         title="The most locally sourced food"
         text="All our ingredients come directly from our farm or local fishery. So you can be sure that you’re eating the freshest, most sustainable food."
       />
-      <Highlights />
     </Flex>
   );
 };
