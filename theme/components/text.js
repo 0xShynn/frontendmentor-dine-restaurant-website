@@ -1,4 +1,4 @@
-const Text = {
+const text = {
   // style object for base or default style
   baseStyle: {},
   // styles for different sizes ("sm", "md", "lg")
@@ -12,4 +12,4 @@ const Text = {
   },
 };
 
-export default Text;
+export default text;

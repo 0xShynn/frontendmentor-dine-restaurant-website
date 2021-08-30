@@ -1,4 +1,4 @@
-const Heading = {
+const heading = {
   // style object for base or default style
   baseStyle: {
     color: 'primary.ebonyclay',
@@ -46,4 +46,4 @@ const Heading = {
   },
 };
 
-export default Heading;
+export default heading;

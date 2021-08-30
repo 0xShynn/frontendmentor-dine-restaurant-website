@@ -1,4 +1,4 @@
-export const SharedBaseStyle = {
+export const sharedBaseStyle = {
   rounded: 'none',
   borderWidth: '1px',
   textTransform: 'uppercase',
