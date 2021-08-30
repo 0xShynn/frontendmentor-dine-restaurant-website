@@ -3,10 +3,10 @@ import { extendTheme } from '@chakra-ui/react';
 
 import breakpoints from './breakpoints';
 import colors from './colors';
-import Button from './components/button';
-import Heading from './components/heading';
-import Link from './components/link';
-import Text from './components/text';
+import Button from './components/Button';
+import Heading from './components/Heading';
+import Link from './components/Link';
+import Text from './components/Text';
 import fonts from './fonts';
 import styles from './styles';
 import textStyles from './textStyles';

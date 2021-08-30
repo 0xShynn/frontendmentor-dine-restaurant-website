@@ -1,8 +1,8 @@
-import { sharedBaseStyle, light, dark } from './sharedStyleLinkButton';
+import { SharedBaseStyle, light, dark } from './SharedStyleLinkButton';
 
 const Button = {
   baseStyle: {
-    ...sharedBaseStyle,
+    ...SharedBaseStyle,
   },
   sizes: {
     sm: {},

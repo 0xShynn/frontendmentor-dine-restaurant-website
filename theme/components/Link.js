@@ -1,8 +1,8 @@
-import { sharedBaseStyle, light, dark } from './sharedStyleLinkButton';
+import { SharedBaseStyle, light, dark } from './SharedStyleLinkButton';
 
 const Link = {
   baseStyle: {
-    ...sharedBaseStyle,
+    ...SharedBaseStyle,
     _hover: {
       textDecoration: 'none',
     },
