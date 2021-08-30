@@ -21,8 +21,8 @@ const Highlights = () => {
       px="6"
       justify="center"
       direction={{ base: 'column' }}
-      py="30px"
-      pb="70px"
+      py={{ sm: '30px', md: '50px' }}
+      pb={{ sm: '70px', md: '90px' }}
     >
       <Flex
         textAlign={{ base: 'center', xl: 'left' }}
@@ -44,7 +44,7 @@ const Highlights = () => {
 
       <VStack
         spacing="6"
-        divider={<StackDivider borderColor="gray.700" />}
+        divider={<StackDivider borderColor="#272727" />}
         w="fit-content"
         mx="auto"
       >
