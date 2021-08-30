@@ -13,7 +13,6 @@ const HighlightsMenu = ({ title, text, image }) => {
         w={{ sm: '327px', md: '128px' }}
         h={{ sm: '245px', md: '96px' }}
         display="inline-flex"
-        bg="red.100"
       >
         <Image src={image} alt={title} />
       </Box>

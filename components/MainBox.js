@@ -163,7 +163,7 @@ const MainBox = ({
           }}
           zIndex="overlay"
         >
-          <PatternDivider />
+          <PatternDivider paddingY="45px" />
           <Box maxW={{ base: '375px', xl: '445px' }}>
             <Heading as="h2" variant="h2" color="primary.codgray" maxW="400px">
               {title}

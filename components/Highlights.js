@@ -18,22 +18,28 @@ const Highlights = () => {
   return (
     <Flex
       bg="primary.codgray"
-      px="6"
       justify="center"
-      direction={{ base: 'column' }}
-      py={{ sm: '30px', md: '50px' }}
-      pb={{ sm: '70px', md: '90px' }}
+      direction={{ base: 'column', xl: 'row' }}
+      pt={{ base: '30px', md: '50px', lg: '120px', xl: '180px' }}
+      pb={{ base: '70px', md: '90px', lg: '120px' }}
+      px={{ base: 6, lg: 16, xl: 14 }}
     >
       <Flex
         textAlign={{ base: 'center', xl: 'left' }}
         maxW="445px"
         mx="auto"
         direction="column"
-        align="center"
+        align={{ base: 'center', xl: 'flex-start' }}
         mb="60px"
       >
-        <PatternDivider />
-        <Heading as="h2" variant="h2" color="white" maxW={{ sm: '350px' }}>
+        <PatternDivider paddingY={{ base: '45px', lg: '0' }} />
+        <Heading
+          as="h2"
+          variant="h2"
+          color="white"
+          maxW={{ sm: '350px' }}
+          mt={{ lg: '45px' }}
+        >
           A few highlights from our menu
         </Heading>
         <Text color="white" textStyle="body2">
@@ -47,6 +53,7 @@ const Highlights = () => {
         divider={<StackDivider borderColor="#272727" />}
         w="fit-content"
         mx="auto"
+        mt={{ xl: '50px' }}
       >
         <HighlightsMenu
           title="Seared Salmon Fillet"

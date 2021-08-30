@@ -6,8 +6,8 @@ import placeTablet from '../assets/homepage/enjoyable-place-tablet@2x.jpg';
 import foodDesktop from '../assets/homepage/locally-sourced-desktop@2x.jpg';
 import foodMobile from '../assets/homepage/locally-sourced-mobile@2x.jpg';
 import foodTablet from '../assets/homepage/locally-sourced-tablet@2x.jpg';
-import Highlights from './Highlights';
 
+import Highlights from './Highlights';
 import MainBox from './MainBox';
 
 const MainContainer = () => {
