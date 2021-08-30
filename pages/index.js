@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import Head from 'next/head';
 
+import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import HighlightsContainer from '../components/HighlightsContainer';
 import MainContainer from '../components/MainContainer';
@@ -22,6 +23,7 @@ export default function Home() {
           Hello
         </Box>
       </Flex>
+      <Footer />
     </Box>
   );
 }
