@@ -156,7 +156,11 @@ const MainBox = ({
           justify="center"
           textAlign={{ base: 'center', lg: 'left' }}
           pl={{ lg: isLeftImage ? '60px' : 0 }}
-          mb={{ md: !isLeftImage ? '120px' : 0, lg: !isLeftImage ? '60px' : 0 }}
+          mb={{
+            sm: !isLeftImage ? '70px' : 0,
+            md: !isLeftImage ? '120px' : 0,
+            lg: !isLeftImage ? '60px' : 0,
+          }}
           zIndex="overlay"
         >
           <PatternDivider />

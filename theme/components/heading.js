@@ -17,9 +17,9 @@ const Heading = {
     },
     // H2, Spartan Bold, 40px, 56px Line, -0,5 Character
     h2: {
-      fontSize: { base: '32px', xl: '40px' },
+      fontSize: { base: '32px', md: '40px', xl: '40px' },
       fontWeight: 'bold',
-      lineHeight: { base: '40px', xl: '56px' },
+      lineHeight: { base: '40px', md: '56px', xl: '56px' },
       letterSpacing: '-0.5px',
       mb: '20px',
     },
