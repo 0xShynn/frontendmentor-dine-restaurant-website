@@ -1,13 +1,12 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import NextImage from 'next/image';
-import Link from 'next/link';
 
-import DineLogo from '../assets/brand/DineLogo';
 import dishImageDesktop from '../assets/homepage/hero-bg-desktop@2x.jpg';
 import dishImageMobile from '../assets/homepage/hero-bg-mobile@2x.jpg';
 import dishImageTablet from '../assets/homepage/hero-bg-tablet@2x.jpg';
 
 import CustomLink from './CustomLink';
+import Logo from './Logo';
 
 const Hero = () => {
   return (
@@ -66,16 +65,7 @@ const Hero = () => {
           textAlign={{ base: 'center', lg: 'left' }}
           zIndex="docked"
         >
-          <Link href="/" passHref>
-            <Box
-              w={{ base: '83px', md: '103px' }}
-              mb={{ base: 6, lg: 24, xl: '150px' }}
-              mx={{ base: 'auto', md: 0 }}
-              cursor="pointer"
-            >
-              <DineLogo />
-            </Box>
-          </Link>
+          <Logo />
 
           <Heading
             as="h1"
