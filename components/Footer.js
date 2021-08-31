@@ -1,34 +1,43 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
+
 import DineLogo from '../assets/brand/DineLogo';
 
 const Footer = () => {
-  const TextBlock = ({ children }) => (
-    <Box
-      textAlign={{ base: 'center', md: 'left' }}
-      textTransform="uppercase"
-      mb="6"
-      fontSize="14px"
-      letterSpacing="widest"
-      lineHeight="2"
-    >
-      <Text>{children}</Text>
-    </Box>
-  );
+  const TextBlock = (props) => {
+    const { children } = props;
+
+    return (
+      <Box
+        textAlign={{ base: 'center', md: 'left' }}
+        textTransform="uppercase"
+        mb="6"
+        fontSize="14px"
+        letterSpacing="widest"
+        lineHeight="2"
+        {...props}
+      >
+        <Text>{children}</Text>
+      </Box>
+    );
+  };
   return (
-    <Box role="contentinfo" bg="primary.codgray">
+    <Flex role="contentinfo" bg="primary.codgray">
       <Flex
         color="white"
         direction={{ base: 'column', md: 'row' }}
         align={{ base: 'center', md: 'flex-start' }}
-        justify={{ md: 'center' }}
-        px={{ base: 6, md: 16 }}
+        justify={{ md: 'center', xl: 'flex-start' }}
+        px={{ base: 6, md: 16, xl: 0 }}
         py="16"
+        mx="auto"
+        maxW="1110px"
+        w="full"
       >
-        <Box w="103px" h="40px" mb="10" mr={{ md: 32 }}>
+        <Box w="103px" h="40px" mb="10" mr={{ md: 32, xl: 48 }}>
           <DineLogo />
         </Box>
 
-        <Box>
+        <Flex direction={{ base: 'column', xl: 'row' }}>
           <TextBlock>
             Marthwaite, Sedbergh
             <br />
@@ -38,14 +47,16 @@ const Footer = () => {
             <br />
           </TextBlock>
 
-          <TextBlock>
-            <Text>OPEN TIMES </Text>
-            <Text>MON - FRI: 09:00 AM - 10:00 PM</Text>
-            <Text>SAT - SUN: 09:00 AM - 11:30PM</Text>
+          <TextBlock ml={{ xl: 32 }}>
+            OPEN TIMES <br />
+            MON - FRI: 09:00 AM - 10:00 PM
+            <br />
+            SAT - SUN: 09:00 AM - 11:30PM
+            <br />
           </TextBlock>
-        </Box>
+        </Flex>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 

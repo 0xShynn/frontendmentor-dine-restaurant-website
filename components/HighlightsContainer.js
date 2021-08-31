@@ -22,12 +22,14 @@ const HighlightsContainer = () => {
         direction={{ base: 'column', xl: 'row' }}
         pt={{ base: '30px', md: '50px', lg: '120px', xl: '180px' }}
         pb={{ base: '70px', md: '90px', lg: '120px' }}
-        px={{ base: 6, lg: 16, xl: 14 }}
+        px={{ base: 6, lg: 16, xl: 0 }}
+        maxW="1110px"
+        mx="auto"
       >
         <Flex
           textAlign={{ base: 'center', xl: 'left' }}
           maxW="445px"
-          mx="auto"
+          mx={{ base: 'auto', xl: 0 }}
           direction="column"
           align={{ base: 'center', xl: 'flex-start' }}
           mb="60px"
@@ -53,6 +55,7 @@ const HighlightsContainer = () => {
           divider={<StackDivider borderColor="#272727" />}
           w="fit-content"
           mx="auto"
+          ml={{ xl: '125px' }}
           mt={{ xl: '50px' }}
         >
           <HighlightsMenu
