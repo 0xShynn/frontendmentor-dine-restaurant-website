@@ -13,10 +13,13 @@ import {
 import NextImage from 'next/image';
 import PropTypes from 'prop-types';
 
+import familyGatheringDesktop from '../assets/homepage/family-gathering-desktop@2x.jpg';
 import familyGatheringMobile from '../assets/homepage/family-gathering-mobile@2x.jpg';
 import familyGatheringTablet from '../assets/homepage/family-gathering-tablet@2x.jpg';
+import socialEventsDesktop from '../assets/homepage/social-events-desktop@2x.jpg';
 import socialEventsMobile from '../assets/homepage/social-events-mobile@2x.jpg';
 import socialEventsTablet from '../assets/homepage/social-events-tablet@2x.jpg';
+import specialEventsDesktop from '../assets/homepage/special-events-desktop@2x.jpg';
 import specialEventsMobile from '../assets/homepage/special-events-mobile@2x.jpg';
 import specialEventsTablet from '../assets/homepage/special-events-tablet@2x.jpg';
 
@@ -30,6 +33,7 @@ const EventsContainer = () => {
         'We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.',
       imageMobile: familyGatheringMobile,
       imageTablet: familyGatheringTablet,
+      imageDesktop: familyGatheringDesktop,
     },
     {
       label: 'Special Events',
@@ -37,6 +41,7 @@ const EventsContainer = () => {
         'Whether it’s a romantic dinner or special date you’re celebrating with others we’ll look after you. We’ll be sure to mark your special date with an unforgettable meal.',
       imageMobile: specialEventsMobile,
       imageTablet: specialEventsTablet,
+      imageDesktop: specialEventsDesktop,
     },
     {
       label: 'Social Events',
@@ -44,6 +49,7 @@ const EventsContainer = () => {
         'Are you looking to have a larger social event? No problem! We’re more than happy to cater for big parties. We’ll work with you to make your event a hit with everyone.',
       imageMobile: socialEventsMobile,
       imageTablet: socialEventsTablet,
+      imageDesktop: socialEventsDesktop,
     },
   ];
 
