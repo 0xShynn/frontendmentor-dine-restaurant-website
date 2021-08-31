@@ -8,6 +8,7 @@ const colors = {
     ebonyclay: '#d4e2fc',
     shuttlegray: 'hsl(217, 14%, 42%)',
     dinegray: '#181818',
+    flushedgray: '#8E8E8E',
   },
 };
 

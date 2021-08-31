@@ -17,6 +17,12 @@ const button = {
     ...light,
     ...black,
     ...dark,
+    flushed: {
+      color: 'primary.beaver',
+      fontSize: '20px',
+      px: 8,
+      border: 'none',
+    },
   },
   defaultProps: {
     size: 'md',
