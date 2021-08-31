@@ -4,7 +4,6 @@ export const sharedBaseStyle = {
   textTransform: 'uppercase',
   fontWeight: 'semibold',
   letterSpacing: '2px',
-  textTransform: 'uppercase',
 };
 
 export const light = {
@@ -19,6 +18,18 @@ export const light = {
       _hover: {
         color: 'primary.codgray',
       },
+    },
+  },
+};
+
+export const black = {
+  black: {
+    bg: 'primary.codgray',
+    color: 'white',
+    _hover: {
+      bg: 'white',
+      color: 'primary.codgray',
+      borderColor: 'primary.codgray',
     },
   },
 };

@@ -66,7 +66,7 @@ const EventsContainer = () => {
         orientation={tabsOrientation}
         variant="unstyled"
         id="1"
-        py="16"
+        py={{ base: 16, md: 24, xl: 32 }}
       >
         <Flex direction={{ base: 'column', xl: 'row' }} align="center">
           <Flex>
@@ -115,7 +115,11 @@ const EventsContainer = () => {
                   </Box>
 
                   {/* image desktop version (xl) */}
-                  <Box display={{ base: 'none', xl: 'block' }} pos="relative">
+                  <Box
+                    display={{ base: 'none', xl: 'inline-flex' }}
+                    pos="relative"
+                    shadow="2xl"
+                  >
                     <NextImage
                       src={tab.imageDesktop}
                       width={tab.imageDesktop.width / 2}
@@ -188,19 +192,25 @@ const EventsContainer = () => {
                     direction="column"
                     align={{ base: 'center', xl: 'flex-start' }}
                   >
-                    <Heading as="h2" variant="h2" mb="4">
+                    <Heading
+                      as="h2"
+                      variant="h2"
+                      mb="4"
+                      color="primary.codgray"
+                    >
                       {tab.label}
                     </Heading>
                     <Flex justify="center">
                       <Text
                         textStyle={{ base: 'body2', md: 'body1' }}
-                        mb="6"
+                        mb={{ base: 6, md: 8 }}
                         maxW="457px"
+                        color="primary.codgray"
                       >
                         {tab.content}
                       </Text>
                     </Flex>
-                    <CustomLink href="/" variant="light">
+                    <CustomLink href="/" variant="black" mb={{ xl: 10 }}>
                       Book a table
                     </CustomLink>
                   </Flex>

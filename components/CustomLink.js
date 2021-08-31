@@ -2,11 +2,12 @@ import { Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import PropTypes from 'prop-types';
 
-const CustomLink = ({ href, variant }) => {
+const CustomLink = (props) => {
+  const { href, variant } = props;
   return (
     <NextLink href={href} passHref>
-      <Link variant={variant} display="inline-flex" w="fit-content">
-        Book a table
+      <Link variant={variant} display="inline-flex" w="fit-content" {...props}>
+        {props.children}
       </Link>
     </NextLink>
   );
@@ -14,7 +15,8 @@ const CustomLink = ({ href, variant }) => {
 
 CustomLink.propTypes = {
   href: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['light', 'dark']).isRequired,
+  variant: PropTypes.oneOf(['light', 'dark', 'black']).isRequired,
+  children: PropTypes.string,
 };
 
 export default CustomLink;

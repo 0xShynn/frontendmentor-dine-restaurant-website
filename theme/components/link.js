@@ -1,4 +1,4 @@
-import { sharedBaseStyle, light, dark } from './sharedStyleLinkButton';
+import { sharedBaseStyle, light, black, dark } from './sharedStyleLinkButton';
 
 const link = {
   baseStyle: {
@@ -18,6 +18,7 @@ const link = {
   },
   variants: {
     ...light,
+    ...black,
     ...dark,
   },
   defaultProps: {
