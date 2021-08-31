@@ -1,94 +1,104 @@
 import {
   Box,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Heading,
-  Text,
   Flex,
+  Heading,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
 } from '@chakra-ui/react';
 import NextImage from 'next/image';
+import PropTypes from 'prop-types';
+
+import familyGatheringMobile from '../assets/homepage/family-gathering-mobile@2x.jpg';
+import socialEventsMobile from '../assets/homepage/social-events-mobile@2x.jpg';
+import specialEventsMobile from '../assets/homepage/special-events-mobile@2x.jpg';
 
 import CustomLink from './CustomLink';
 
 const EventsContainer = () => {
-  const EventContent = ({ title, text }) => {
-    return (
-      <Box textAlign="center">
-        <Heading as="h2" variant="h2" mb="4">
-          {title}
-        </Heading>
-        <Text textStyle="body2" mb="6">
-          {text}
-        </Text>
-        <CustomLink href="/" variant="light">
-          Book a table
-        </CustomLink>
-      </Box>
-    );
-  };
+  const tabData = [
+    {
+      label: 'Family Gathering',
+      content:
+        'We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.',
+      imageMobile: familyGatheringMobile,
+    },
+    {
+      label: 'Special Events',
+      content:
+        'Whether it’s a romantic dinner or special date you’re celebrating with others we’ll look after you. We’ll be sure to mark your special date with an unforgettable meal.',
+      imageMobile: specialEventsMobile,
+    },
+    {
+      label: 'Social Events',
+      content:
+        'Are you looking to have a larger social event? No problem! We’re more than happy to cater for big parties. We’ll work with you to make your event a hit with everyone.',
+      imageMobile: socialEventsMobile,
+    },
+  ];
 
-  return (
-    <Box py="16">
-      <Tabs isFitted orientation="vertical" id="1" variant="unstyled">
+  function DataTabs({ data }) {
+    return (
+      <Tabs isFitted orientation="vertical" variant="unstyled" id="1" py="16">
         <Flex direction="column" align="center">
           <Flex>
             <TabPanels>
-              <TabPanel>
-                <Box w="326px" h="400px" bg="red.100" mb="6" />
-              </TabPanel>
-              <TabPanel>
-                <Box w="326px" h="400px" bg="blue.100" mb="6" />
-              </TabPanel>
-              <TabPanel>
-                <Box w="326px" h="400px" bg="yellow.100" mb="6" />
-              </TabPanel>
+              {data.map((tab, index) => (
+                <TabPanel key={index}>
+                  <Box w="327px" h="400px" shadow="2xl">
+                    <NextImage
+                      src={tab.imageMobile}
+                      width="327px"
+                      height="400px"
+                    />
+                  </Box>
+                </TabPanel>
+              ))}
             </TabPanels>
           </Flex>
-          <TabList>
-            <Tab color="#A6A6A6" _selected={{ color: 'primary.codgray' }}>
-              <Heading as="h3" variant="h3s">
-                Family Gathering
-              </Heading>
-            </Tab>
-            <Tab color="#A6A6A6" _selected={{ color: 'primary.codgray' }}>
-              <Heading as="h3" variant="h3s">
-                Special Events
-              </Heading>
-            </Tab>
-            <Tab color="#A6A6A6" _selected={{ color: 'primary.codgray' }}>
-              <Heading as="h3" variant="h3s">
-                Social Events
-              </Heading>
-            </Tab>
+
+          <TabList pt="4" pb="2">
+            {data.map((tab, index) => (
+              <Tab
+                key={index}
+                color="#A6A6A6"
+                _selected={{ color: 'primary.codgray' }}
+              >
+                <Heading as="h3" variant="h3s">
+                  {tab.label}
+                </Heading>
+              </Tab>
+            ))}
           </TabList>
 
           <TabPanels>
-            <TabPanel>
-              <EventContent
-                title="Family Gathering"
-                text="We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all."
-              />
-            </TabPanel>
-            <TabPanel>
-              <EventContent
-                title="Special Events"
-                text="Whether it’s a romantic dinner or special date you’re celebrating with others we’ll look after you. We’ll be sure to mark your special date with an unforgettable meal."
-              />
-            </TabPanel>
-            <TabPanel>
-              <EventContent
-                title="Social Events"
-                text="Are you looking to have a larger social event? No problem! We’re more than happy to cater for big parties. We’ll work with you to make your event a hit with everyone."
-              />
-            </TabPanel>
+            {data.map((tab, index) => (
+              <TabPanel textAlign="center" key={index}>
+                <Heading as="h2" variant="h2" mb="4">
+                  {tab.label}
+                </Heading>
+                <Text textStyle="body2" mb="6">
+                  {tab.content}
+                </Text>
+                <CustomLink href="/" variant="light">
+                  Book a table
+                </CustomLink>
+              </TabPanel>
+            ))}
           </TabPanels>
         </Flex>
       </Tabs>
-    </Box>
-  );
+    );
+  }
+
+  return <DataTabs data={tabData} />;
+};
+
+EventsContainer.propTypes = {
+  data: PropTypes.object,
 };
 
 export default EventsContainer;
