@@ -22,6 +22,7 @@ export default function Home() {
         <MainContainer />
         <HighlightsContainer />
       </Flex>
+
       <EventsContainer />
       <ReservationBanner />
       <Footer />

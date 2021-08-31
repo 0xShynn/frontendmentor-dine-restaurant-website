@@ -224,9 +224,29 @@ const EventsContainer = () => {
   }
 
   return (
-    <Flex justify="center">
-      <DataTabs data={tabData} />
-    </Flex>
+    <Box>
+      <Box
+        w="full"
+        h={{
+          md: '320px',
+        }}
+        pos="absolute"
+        zIndex="hide"
+        bgImage="/images/pattern-curve-top-right.svg"
+        bgRepeat="no-repeat"
+        bgSize={{
+          md: '895px 320px',
+        }}
+        bgPos={{
+          md: '-520px 0',
+          lg: '-300px 0',
+          xl: '-355px 0',
+        }}
+      />
+      <Flex justify="center">
+        <DataTabs data={tabData} />
+      </Flex>
+    </Box>
   );
 };
 
