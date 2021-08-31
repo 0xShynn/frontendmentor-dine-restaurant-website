@@ -28,7 +28,7 @@ const Footer = () => {
         align={{ base: 'center', md: 'flex-start' }}
         justify={{ md: 'center', xl: 'flex-start' }}
         px={{ base: 6, md: 16, xl: 0 }}
-        py="16"
+        py={{ base: 16, xl: 20 }}
         mx="auto"
         maxW="1110px"
         w="full"
