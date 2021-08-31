@@ -1,4 +1,5 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 import DineLogo from '../assets/brand/DineLogo';
@@ -39,9 +40,17 @@ const Footer = () => {
         maxW="1110px"
         w="full"
       >
-        <Box w="103px" h="40px" mb="10" mr={{ md: 32, xl: 48 }}>
-          <DineLogo />
-        </Box>
+        <Link href="/" passHref>
+          <Box
+            w="103px"
+            h="40px"
+            mb="10"
+            mr={{ md: 32, xl: 48 }}
+            cursor="pointer"
+          >
+            <DineLogo />
+          </Box>
+        </Link>
 
         <Flex direction={{ base: 'column', lg: 'row' }}>
           <TextBlock>

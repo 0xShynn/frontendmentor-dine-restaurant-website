@@ -4,7 +4,7 @@ const styles = {
     body: {
       fontSize: '18px',
       fontFamily: 'body',
-      bg: 'white',
+      bg: 'primary.codgray',
     },
   },
 };

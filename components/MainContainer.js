@@ -11,7 +11,7 @@ import MainBox from './MainBox';
 
 const MainContainer = () => {
   return (
-    <Flex w="full" direction="column" py={{ base: 8, sm: 0 }}>
+    <Flex w="full" direction="column" py={{ base: 8, sm: 0 }} bg="white">
       <MainBox
         isFirst={true}
         imageSide="left"

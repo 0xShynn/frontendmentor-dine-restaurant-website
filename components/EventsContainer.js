@@ -213,7 +213,7 @@ const EventsContainer = () => {
                         {tab.content}
                       </Text>
                     </Flex>
-                    <CustomLink href="/" variant="black" mb={{ xl: 10 }}>
+                    <CustomLink href="/booking" variant="black" mb={{ xl: 10 }}>
                       Book a table
                     </CustomLink>
                   </Flex>
@@ -227,7 +227,7 @@ const EventsContainer = () => {
   }
 
   return (
-    <Box>
+    <Box bg="white">
       <Box
         w="full"
         h={{

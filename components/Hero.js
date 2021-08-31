@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import NextImage from 'next/image';
+import Link from 'next/link';
 
 import DineLogo from '../assets/brand/DineLogo';
 import dishImageDesktop from '../assets/homepage/hero-bg-desktop@2x.jpg';
@@ -65,13 +66,16 @@ const Hero = () => {
           textAlign={{ base: 'center', lg: 'left' }}
           zIndex="docked"
         >
-          <Box
-            w={{ base: '83px', md: '103px' }}
-            mb={{ base: 6, lg: 24, xl: '150px' }}
-            mx={{ base: 'auto', md: 0 }}
-          >
-            <DineLogo />
-          </Box>
+          <Link href="/" passHref>
+            <Box
+              w={{ base: '83px', md: '103px' }}
+              mb={{ base: 6, lg: 24, xl: '150px' }}
+              mx={{ base: 'auto', md: 0 }}
+              cursor="pointer"
+            >
+              <DineLogo />
+            </Box>
+          </Link>
 
           <Heading
             as="h1"
@@ -93,7 +97,7 @@ const Hero = () => {
             the freshest produce from the comfort of our farmhouse.
           </Text>
 
-          <CustomLink variant="dark" href="/">
+          <CustomLink variant="dark" href="/booking">
             Book a table
           </CustomLink>
         </Flex>
