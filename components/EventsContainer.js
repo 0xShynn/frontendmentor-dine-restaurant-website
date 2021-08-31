@@ -48,7 +48,12 @@ const EventsContainer = () => {
             <TabPanels>
               {data.map((tab, index) => (
                 <TabPanel key={index}>
-                  <Box w="327px" h="400px" shadow="2xl">
+                  <Box
+                    w={{ base: 'full', sm: '327px' }}
+                    display="inline-flex"
+                    h={{ base: 'full', sm: '400px' }}
+                    shadow="2xl"
+                  >
                     <NextImage
                       src={tab.imageMobile}
                       width="327px"
@@ -65,7 +70,14 @@ const EventsContainer = () => {
               <Tab
                 key={index}
                 color="#A6A6A6"
-                _selected={{ color: 'primary.codgray' }}
+                role="group"
+                _selected={{
+                  color: 'primary.codgray',
+                  bgImage: '/images/line.svg',
+                  bgRepeat: 'no-repeat',
+                  bgSize: '48px',
+                  bgPos: '50% 36px',
+                }}
               >
                 <Heading as="h3" variant="h3s">
                   {tab.label}
@@ -77,15 +89,23 @@ const EventsContainer = () => {
           <TabPanels>
             {data.map((tab, index) => (
               <TabPanel textAlign="center" key={index}>
-                <Heading as="h2" variant="h2" mb="4">
-                  {tab.label}
-                </Heading>
-                <Text textStyle="body2" mb="6">
-                  {tab.content}
-                </Text>
-                <CustomLink href="/" variant="light">
-                  Book a table
-                </CustomLink>
+                <Flex direction="column" align="center">
+                  <Heading as="h2" variant="h2" mb="4">
+                    {tab.label}
+                  </Heading>
+                  <Flex justify="center">
+                    <Text
+                      textStyle={{ base: 'body2', md: 'body1' }}
+                      mb="6"
+                      maxW="457px"
+                    >
+                      {tab.content}
+                    </Text>
+                  </Flex>
+                  <CustomLink href="/" variant="light">
+                    Book a table
+                  </CustomLink>
+                </Flex>
               </TabPanel>
             ))}
           </TabPanels>
@@ -94,7 +114,11 @@ const EventsContainer = () => {
     );
   }
 
-  return <DataTabs data={tabData} />;
+  return (
+    <Flex justify="center">
+      <DataTabs data={tabData} />
+    </Flex>
+  );
 };
 
 EventsContainer.propTypes = {
