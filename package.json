@@ -13,13 +13,15 @@
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@fontsource/spartan": "^4.5.0",
+    "@hookform/resolvers": "^2.8.0",
     "eslint-plugin-import": "^2.24.2",
     "framer-motion": "^4.1.17",
     "next": "11.1.0",
     "prop-types": "^15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hook-form": "^7.14.2"
+    "react-hook-form": "^7.14.2",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "eslint": "7.32.0",
