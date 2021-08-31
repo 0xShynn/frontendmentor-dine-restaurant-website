@@ -57,6 +57,7 @@ const EventsContainer = () => {
     const tabsOrientation = useBreakpointValue({
       base: 'vertical',
       md: 'horizontal',
+      xl: 'vertical',
     });
 
     return (
@@ -67,37 +68,37 @@ const EventsContainer = () => {
         id="1"
         py="16"
       >
-        <Flex direction="column" align="center">
+        <Flex direction={{ base: 'column', xl: 'row' }} align="center">
           <Flex>
             <TabPanels>
               {data.map((tab, index) => (
                 <TabPanel key={index}>
                   {/* image mobile version (base, sm) */}
                   <Box
-                    w={{ base: 'full', sm: '327px' }}
-                    h={{ base: 'full', sm: '400px' }}
+                    w={{ base: 'full', sm: tab.imageMobile.width / 2 }}
+                    h={{ base: 'full', sm: tab.imageMobile.height / 2 }}
                     shadow="2xl"
                     display={{ base: 'inline-flex', md: 'none' }}
                   >
                     <NextImage
                       src={tab.imageMobile}
-                      width="327px"
-                      height="400px"
+                      width={tab.imageMobile.width / 2}
+                      height={tab.imageMobile.height / 2}
                     />
                   </Box>
 
                   {/* image tablet version (md) */}
                   <Box
-                    w="573px"
-                    h="360px"
+                    w={tab.imageTablet.width / 2}
+                    h={tab.imageTablet.height / 2}
                     shadow="2xl"
-                    display={{ base: 'none', md: 'block' }}
+                    display={{ base: 'none', md: 'block', xl: 'none' }}
                     pos="relative"
                   >
                     <NextImage
                       src={tab.imageTablet}
-                      width="573px"
-                      height="360px"
+                      width={tab.imageTablet.width / 2}
+                      height={tab.imageTablet.height / 2}
                     />
                     <Box
                       pos="absolute"
@@ -112,55 +113,86 @@ const EventsContainer = () => {
                       />
                     </Box>
                   </Box>
+
+                  {/* image desktop version (xl) */}
+                  <Box display={{ base: 'none', xl: 'block' }}>
+                    <NextImage
+                      src={tab.imageDesktop}
+                      width={tab.imageDesktop.width / 2}
+                      height={tab.imageDesktop.height / 2}
+                    />
+                  </Box>
                 </TabPanel>
               ))}
             </TabPanels>
           </Flex>
 
-          <TabList pt="4" pb="2" w={{ md: '90vw', lg: '70vw' }}>
-            {data.map((tab, index) => (
-              <Tab
-                key={index}
-                color="#A6A6A6"
-                role="group"
-                _selected={{
-                  color: 'primary.codgray',
-                  bgImage: '/images/line.svg',
-                  bgRepeat: 'no-repeat',
-                  bgSize: '48px',
-                  bgPos: '50% 36px',
-                }}
-              >
-                <Heading as="h3" variant="h3s">
-                  {tab.label}
-                </Heading>
-              </Tab>
-            ))}
-          </TabList>
-
-          <TabPanels>
-            {data.map((tab, index) => (
-              <TabPanel textAlign="center" key={index}>
-                <Flex direction="column" align="center">
-                  <Heading as="h2" variant="h2" mb="4">
+          <Flex direction="column-reverse" pl={{ xl: 24 }}>
+            <TabList pt="4" pb="2" w={{ md: '90vw', lg: '70vw', xl: 'full' }}>
+              {data.map((tab, index) => (
+                <Tab
+                  key={index}
+                  color="#A6A6A6"
+                  role="group"
+                  _selected={{
+                    color: 'primary.codgray',
+                    bgImage: {
+                      base: '/images/line48.svg',
+                      xl: 'none',
+                    },
+                    bgSize: '48px',
+                    bgPos: 'center 36px',
+                    bgRepeat: 'no-repeat',
+                    '> .line': { bg: 'primary.beaver' },
+                  }}
+                  alignSelf={{ base: 'center', xl: 'flex-start' }}
+                  pos="relative"
+                >
+                  <Box
+                    h="1px"
+                    w="95px"
+                    pos="absolute"
+                    left="-112px"
+                    className="line"
+                    display={{ base: 'none', xl: 'block' }}
+                  />
+                  <Heading as="h3" variant="h3s">
                     {tab.label}
                   </Heading>
-                  <Flex justify="center">
-                    <Text
-                      textStyle={{ base: 'body2', md: 'body1' }}
-                      mb="6"
-                      maxW="457px"
-                    >
-                      {tab.content}
-                    </Text>
+                </Tab>
+              ))}
+            </TabList>
+
+            <TabPanels>
+              {data.map((tab, index) => (
+                <TabPanel
+                  textAlign={{ base: 'center', xl: 'left' }}
+                  key={index}
+                >
+                  <Flex
+                    direction="column"
+                    align={{ base: 'center', xl: 'flex-start' }}
+                  >
+                    <Heading as="h2" variant="h2" mb="4">
+                      {tab.label}
+                    </Heading>
+                    <Flex justify="center">
+                      <Text
+                        textStyle={{ base: 'body2', md: 'body1' }}
+                        mb="6"
+                        maxW="457px"
+                      >
+                        {tab.content}
+                      </Text>
+                    </Flex>
+                    <CustomLink href="/" variant="light">
+                      Book a table
+                    </CustomLink>
                   </Flex>
-                  <CustomLink href="/" variant="light">
-                    Book a table
-                  </CustomLink>
-                </Flex>
-              </TabPanel>
-            ))}
-          </TabPanels>
+                </TabPanel>
+              ))}
+            </TabPanels>
+          </Flex>
         </Flex>
       </Tabs>
     );
