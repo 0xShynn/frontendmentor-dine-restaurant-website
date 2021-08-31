@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
 import DineLogo from '../assets/brand/DineLogo';
 import dishImageDesktop from '../assets/homepage/hero-bg-desktop@2x.jpg';
@@ -21,7 +21,7 @@ const Hero = () => {
         right="0"
         zIndex="base"
       >
-        <Image
+        <NextImage
           src={dishImageDesktop}
           alt="Dine hero desktop image"
           objectFit="cover"
@@ -38,12 +38,12 @@ const Hero = () => {
       >
         {/* Hero bg image mobile */}
         <Box display={{ base: 'inline-flex', md: 'none' }}>
-          <Image src={dishImageMobile} alt="Dine hero mobile image" />
+          <NextImage src={dishImageMobile} alt="Dine hero mobile image" />
         </Box>
 
         {/* Hero bg image tablet */}
         <Box display={{ base: 'none', md: 'inline-flex', lg: 'none' }}>
-          <Image src={dishImageTablet} alt="Dine hero tablet image" />
+          <NextImage src={dishImageTablet} alt="Dine hero tablet image" />
         </Box>
 
         {/* Hero content */}
@@ -83,7 +83,12 @@ const Hero = () => {
             Exquisite dining since 1989
           </Heading>
 
-          <Text color="white" textStyle="body2" mb="6" maxW="400px">
+          <Text
+            color="white"
+            textStyle={{ base: 'body2', xl: 'body1' }}
+            mb={{ base: 6, lg: 8, xl: 10 }}
+            maxW={{ base: '400px', xl: '500px' }}
+          >
             Experience our seasonal menu in beautiful country surroundings. Eat
             the freshest produce from the comfort of our farmhouse.
           </Text>

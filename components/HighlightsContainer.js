@@ -53,7 +53,7 @@ const HighlightsContainer = () => {
         <VStack
           spacing="6"
           divider={<StackDivider borderColor="#272727" />}
-          w="fit-content"
+          maxW="540px"
           mx="auto"
           ml={{ xl: '125px' }}
           mt={{ xl: '50px' }}

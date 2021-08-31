@@ -81,6 +81,7 @@ const EventsContainer = () => {
                     display={{ base: 'inline-flex', md: 'none' }}
                   >
                     <NextImage
+                      placeholder="blur"
                       src={tab.imageMobile}
                       width={tab.imageMobile.width / 2}
                       height={tab.imageMobile.height / 2}
@@ -96,6 +97,7 @@ const EventsContainer = () => {
                     pos="relative"
                   >
                     <NextImage
+                      placeholder="blur"
                       src={tab.imageTablet}
                       width={tab.imageTablet.width / 2}
                       height={tab.imageTablet.height / 2}
@@ -121,6 +123,7 @@ const EventsContainer = () => {
                     shadow="2xl"
                   >
                     <NextImage
+                      placeholder="blur"
                       src={tab.imageDesktop}
                       width={tab.imageDesktop.width / 2}
                       height={tab.imageDesktop.height / 2}

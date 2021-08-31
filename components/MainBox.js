@@ -88,7 +88,7 @@ const MainBox = ({
               xl: 'none',
             }}
           >
-            <NextImage src={imageMobile} alt={alt} />
+            <NextImage src={imageMobile} alt={alt} placeholder="blur" />
             {!isLeftImage && (
               <Box
                 pos="absolute"
@@ -119,7 +119,7 @@ const MainBox = ({
             display={{ base: 'none', md: 'block', lg: 'none' }}
             zIndex="1"
           >
-            <NextImage src={imageTablet} alt={alt} />
+            <NextImage src={imageTablet} alt={alt} placeholder="blur" />
             {!isLeftImage && (
               <Box pos="absolute" bottom="50px" right="-60px">
                 <NextImage
@@ -142,7 +142,11 @@ const MainBox = ({
             display={{ base: 'none', xl: 'block' }}
             zIndex="overlay"
           >
-            <NextImage src={imageDesktop} alt="Enjoyable place image mobile" />
+            <NextImage
+              src={imageDesktop}
+              alt="Enjoyable place image mobile"
+              placeholder="blur"
+            />
             {!isLeftImage && (
               <Box pos="absolute" top="280px" right="-110px">
                 <NextImage

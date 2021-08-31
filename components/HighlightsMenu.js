@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import PropTypes from 'prop-types';
 
 const HighlightsMenu = ({ title, text, image }) => {
@@ -15,7 +15,7 @@ const HighlightsMenu = ({ title, text, image }) => {
         h={{ sm: '245px', md: '96px' }}
         display="inline-flex"
       >
-        <Image src={image} alt={title} />
+        <NextImage src={image} alt={title} placeholder="blur" />
       </Box>
       <Box
         width="32px"

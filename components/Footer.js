@@ -43,7 +43,7 @@ const Footer = () => {
           <DineLogo />
         </Box>
 
-        <Flex direction={{ base: 'column', xl: 'row' }}>
+        <Flex direction={{ base: 'column', lg: 'row' }}>
           <TextBlock>
             Marthwaite, Sedbergh
             <br />
@@ -53,7 +53,7 @@ const Footer = () => {
             <br />
           </TextBlock>
 
-          <TextBlock ml={{ xl: 32 }}>
+          <TextBlock ml={{ lg: 24, xl: 32 }}>
             OPEN TIMES <br />
             MON - FRI: 09:00 AM - 10:00 PM
             <br />
