@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { Box, Flex } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
 
 function PatternDivider({ paddingY = '45px', props }) {
   return (
@@ -16,5 +17,10 @@ function PatternDivider({ paddingY = '45px', props }) {
     </Flex>
   );
 }
+
+PatternDivider.propTypes = {
+  paddingY: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  props: PropTypes.any,
+};
 
 export default PatternDivider;

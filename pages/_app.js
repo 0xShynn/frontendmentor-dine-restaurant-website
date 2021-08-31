@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { ChakraProvider } from '@chakra-ui/react';
 
 import '@fontsource/spartan/300.css';

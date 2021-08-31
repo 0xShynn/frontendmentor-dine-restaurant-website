@@ -1,4 +1,5 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
 
 import DineLogo from '../assets/brand/DineLogo';
 
@@ -20,6 +21,11 @@ const Footer = () => {
       </Box>
     );
   };
+
+  TextBlock.propTypes = {
+    children: PropTypes.array,
+  };
+
   return (
     <Flex role="contentinfo" bg="primary.codgray">
       <Flex

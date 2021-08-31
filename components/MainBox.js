@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import NextImage from 'next/image';
+import PropTypes from 'prop-types';
 
 import PatternDivider from './patterns/PatternDivider';
 
@@ -184,6 +185,27 @@ const MainBox = ({
       </Flex>
     </Box>
   );
+};
+
+MainBox.propTypes = {
+  alt: PropTypes.string.isRequired,
+  imageBackground: PropTypes.bool,
+  imageDesktop: PropTypes.shape({
+    height: PropTypes.number,
+    width: PropTypes.number,
+  }).isRequired,
+  imageMobile: PropTypes.shape({
+    height: PropTypes.number,
+    width: PropTypes.number,
+  }).isRequired,
+  imageSide: PropTypes.oneOf(['right', 'left']).isRequired,
+  imageTablet: PropTypes.shape({
+    height: PropTypes.number,
+    width: PropTypes.number,
+  }).isRequired,
+  isFirst: PropTypes.bool,
+  text: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default MainBox;

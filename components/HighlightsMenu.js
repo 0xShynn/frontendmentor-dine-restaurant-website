@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 const HighlightsMenu = ({ title, text, image }) => {
   return (
@@ -39,6 +40,12 @@ const HighlightsMenu = ({ title, text, image }) => {
       </Box>
     </Flex>
   );
+};
+
+HighlightsMenu.propTypes = {
+  image: PropTypes.object.isRequired,
+  text: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default HighlightsMenu;

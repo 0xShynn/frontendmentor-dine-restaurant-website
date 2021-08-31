@@ -1,5 +1,6 @@
 import { Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import PropTypes from 'prop-types';
 
 const CustomLink = ({ href, variant }) => {
   return (
@@ -9,6 +10,11 @@ const CustomLink = ({ href, variant }) => {
       </Link>
     </NextLink>
   );
+};
+
+CustomLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  variant: PropTypes.oneOf(['light', 'dark']).isRequired,
 };
 
 export default CustomLink;
