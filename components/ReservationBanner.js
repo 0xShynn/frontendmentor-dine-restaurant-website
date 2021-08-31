@@ -26,7 +26,7 @@ const ReservationBanner = () => {
         <Heading as="h2" variant="h2" color="white" mb={{ base: 6, xl: 0 }}>
           Ready to make a reservation?
         </Heading>
-        <CustomLink href="/" variant="light">
+        <CustomLink href="/" variant="dark">
           Book a table
         </CustomLink>
       </Flex>
