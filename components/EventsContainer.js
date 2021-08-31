@@ -115,19 +115,34 @@ const EventsContainer = () => {
                   </Box>
 
                   {/* image desktop version (xl) */}
-                  <Box display={{ base: 'none', xl: 'block' }}>
+                  <Box display={{ base: 'none', xl: 'block' }} pos="relative">
                     <NextImage
                       src={tab.imageDesktop}
                       width={tab.imageDesktop.width / 2}
                       height={tab.imageDesktop.height / 2}
                     />
+                    <Box
+                      pos="absolute"
+                      top="-38px"
+                      left="-40px"
+                      w="160px"
+                      h="76px"
+                    >
+                      <NextImage
+                        src="/images/pattern-lines.svg"
+                        layout="fill"
+                      />
+                    </Box>
                   </Box>
                 </TabPanel>
               ))}
             </TabPanels>
           </Flex>
 
-          <Flex direction="column-reverse" pl={{ xl: 24 }}>
+          <Flex
+            direction={{ base: 'column', xl: 'column-reverse' }}
+            pl={{ xl: 24 }}
+          >
             <TabList pt="4" pb="2" w={{ md: '90vw', lg: '70vw', xl: 'full' }}>
               {data.map((tab, index) => (
                 <Tab
