@@ -27,7 +27,12 @@ const HighlightsMenu = ({ title, text, image }) => {
         display={{ base: 'none', md: 'block' }}
       />
       <Box textAlign={{ base: 'center', md: 'left' }} ml={{ md: '30px' }}>
-        <Heading as="h3" variant="h3" color="white" mb={{ base: '2', md: '0' }}>
+        <Heading
+          as="h3"
+          variant="h3l"
+          color="white"
+          mb={{ base: '2', md: '0' }}
+        >
           {title}
         </Heading>
         <Text
