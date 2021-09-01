@@ -9,6 +9,7 @@ import {
   FormErrorMessage,
   Heading,
   Input,
+  Select,
   Stack,
   Text,
 } from '@chakra-ui/react';
@@ -22,6 +23,9 @@ const schema = yup.object().shape({
   month: yup.number().required(),
   day: yup.number().required(),
   year: yup.number().required(),
+  hour: yup.number().required(),
+  minute: yup.number().required(),
+  period: yup.string().required(),
 });
 
 const ReservationForm = () => {
@@ -43,8 +47,8 @@ const ReservationForm = () => {
     });
   }
 
-  console.log(errors);
   const errorDate = errors.day || errors.month || errors.year;
+  const errorTime = errors.hour || errors.minute;
 
   const [seats, setSeats] = useState(1);
 
@@ -74,6 +78,7 @@ const ReservationForm = () => {
       id="form"
     >
       <form onSubmit={handleSubmit(onSubmit)}>
+        {/* Name */}
         <FormControl isInvalid={errors.name} id="name" mb="8">
           <Flex direction="column" pos="relative">
             <Input
@@ -94,6 +99,7 @@ const ReservationForm = () => {
           </Flex>
         </FormControl>
 
+        {/* Email */}
         <FormControl isInvalid={errors.name} id="email" mb="8">
           <Flex direction="column" pos="relative">
             <Input
@@ -114,8 +120,13 @@ const ReservationForm = () => {
           </Flex>
         </FormControl>
 
+        {/* Date */}
         <Flex direction={{ base: 'column', md: 'row' }} mb="8">
-          <Flex w={{ md: '200px' }} direction="column" justify="center">
+          <Flex
+            w={{ md: '200px' }}
+            direction="column"
+            align={{ base: 'center', m: 'flex-start' }}
+          >
             <Text
               textStyle="body1"
               color={errorDate ? 'red.500' : 'primary.codgray'}
@@ -173,7 +184,7 @@ const ReservationForm = () => {
                 type="number"
                 min={currentYear}
                 max={currentYear + 2}
-                placeholder="YY"
+                placeholder="YYYY"
                 _placeholder={{ color: 'gray.500' }}
                 bg="white"
                 color="primary.codgray"
@@ -187,10 +198,82 @@ const ReservationForm = () => {
           </Stack>
         </Flex>
 
+        {/* Time */}
+        <Flex direction={{ base: 'column', md: 'row' }} mb="8">
+          <Flex w={{ md: '200px' }} direction="column" justify="center">
+            <Text
+              textStyle="body1"
+              color={errorTime ? 'red.500' : 'primary.codgray'}
+            >
+              Pick a time
+            </Text>
+            <Text fontSize="11px" color="red.500">
+              {errorTime && 'This field is incomplete'}
+            </Text>
+          </Flex>
+          <Stack
+            direction={{ base: 'column', sm: 'row' }}
+            spacing="4"
+            w="full"
+            sx={{ 'input, select': { px: 4 } }}
+          >
+            <FormControl isInvalid={errors.hour} id="hour">
+              <Input
+                id="hour"
+                type="number"
+                min="1"
+                max="12"
+                placeholder="09"
+                _placeholder={{ color: 'gray.500' }}
+                bg="white"
+                color="primary.codgray"
+                fontSize="md"
+                {...register('hour', {
+                  required: 'This is required',
+                })}
+                variant="flushed"
+              />
+            </FormControl>
+            <FormControl isInvalid={errors.minute} id="minute">
+              <Input
+                id="minute"
+                type="number"
+                min="0"
+                max="59"
+                step="30"
+                placeholder="00"
+                _placeholder={{ color: 'gray.500' }}
+                bg="white"
+                color="primary.codgray"
+                fontSize="md"
+                {...register('minute', {
+                  required: 'This is required',
+                })}
+                variant="flushed"
+              />
+            </FormControl>
+            <FormControl isInvalid={errors.period} id="period">
+              <Select
+                variant="flushed"
+                defaultValue="AM"
+                id="period"
+                {...register('period', {
+                  required: 'This is required',
+                })}
+              >
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </Select>
+            </FormControl>
+          </Stack>
+        </Flex>
+
+        {/* Seats */}
         <Flex
           mb="6"
           borderBottom="1px"
           w="full"
+          direction={{ base: 'column', sm: 'row' }}
           justify="space-between"
           align="center"
         >
