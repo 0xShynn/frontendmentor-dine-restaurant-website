@@ -9,6 +9,8 @@ import {
   FormErrorMessage,
   Heading,
   Input,
+  Stack,
+  Text,
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -17,6 +19,9 @@ import * as yup from 'yup';
 const schema = yup.object().shape({
   name: yup.string().required('A name is required'),
   email: yup.string().email().required('An email is required'),
+  month: yup.number().required(),
+  day: yup.number().required(),
+  year: yup.number().required(),
 });
 
 const ReservationForm = () => {
@@ -38,6 +43,9 @@ const ReservationForm = () => {
     });
   }
 
+  console.log(errors);
+  const errorDate = errors.day || errors.month || errors.year;
+
   const [seats, setSeats] = useState(1);
 
   function handleSeatsDecrement() {
@@ -51,6 +59,8 @@ const ReservationForm = () => {
       setSeats(seats + 1);
     }
   }
+
+  const currentYear = new Date().getFullYear();
 
   return (
     <Box
@@ -103,6 +113,79 @@ const ReservationForm = () => {
             </FormErrorMessage>
           </Flex>
         </FormControl>
+
+        <Flex direction={{ base: 'column', md: 'row' }} mb="8">
+          <Flex w={{ md: '200px' }} direction="column" justify="center">
+            <Text
+              textStyle="body1"
+              color={errorDate ? 'red.500' : 'primary.codgray'}
+            >
+              Pick a date
+            </Text>
+            <Text fontSize="11px" color="red.500">
+              {(errors.day || errors.month || errors.year) &&
+                'This field is incomplete'}
+            </Text>
+          </Flex>
+          <Stack
+            direction={{ base: 'column', sm: 'row' }}
+            spacing="4"
+            w="full"
+            sx={{ input: { px: 4 } }}
+          >
+            <FormControl isInvalid={errors.month} id="month">
+              <Input
+                id="month"
+                type="number"
+                min="1"
+                max="12"
+                placeholder="MM"
+                _placeholder={{ color: 'gray.500' }}
+                bg="white"
+                color="primary.codgray"
+                fontSize="md"
+                {...register('month', {
+                  required: 'This is required',
+                })}
+                variant="flushed"
+              />
+            </FormControl>
+            <FormControl isInvalid={errors.day} id="day">
+              <Input
+                id="day"
+                type="number"
+                min="1"
+                max="31"
+                placeholder="DD"
+                _placeholder={{ color: 'gray.500' }}
+                bg="white"
+                color="primary.codgray"
+                fontSize="md"
+                {...register('day', {
+                  required: 'This is required',
+                })}
+                variant="flushed"
+              />
+            </FormControl>
+            <FormControl isInvalid={errors.year} id="year">
+              <Input
+                id="year"
+                type="number"
+                min={currentYear}
+                max={currentYear + 2}
+                placeholder="YY"
+                _placeholder={{ color: 'gray.500' }}
+                bg="white"
+                color="primary.codgray"
+                fontSize="md"
+                {...register('year', {
+                  required: 'This is required',
+                })}
+                variant="flushed"
+              />
+            </FormControl>
+          </Stack>
+        </Flex>
 
         <Flex
           mb="6"
