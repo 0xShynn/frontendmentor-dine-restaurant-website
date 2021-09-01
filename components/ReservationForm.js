@@ -1,17 +1,16 @@
 /* eslint-disable no-undef */
+import { useState } from 'react';
+
 import {
   Box,
   Button,
   Flex,
   FormControl,
   FormErrorMessage,
-  FormLabel,
   Heading,
   Input,
-  Text,
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -40,6 +39,18 @@ const ReservationForm = () => {
   }
 
   const [seats, setSeats] = useState(1);
+
+  function handleSeatsDecrement() {
+    if (seats > 1) {
+      setSeats(seats - 1);
+    }
+  }
+
+  function handleSeatsIncrement() {
+    if (seats < 10) {
+      setSeats(seats + 1);
+    }
+  }
 
   return (
     <Box
@@ -100,27 +111,13 @@ const ReservationForm = () => {
           justify="space-between"
           align="center"
         >
-          <Button
-            variant="flushed"
-            onClick={() => {
-              if (seats > 1) {
-                setSeats(seats - 1);
-              }
-            }}
-          >
+          <Button variant="flushed" onClick={handleSeatsDecrement}>
             -
           </Button>
           <Heading as="p" variant="h3l">
             {seats} people
           </Heading>
-          <Button
-            variant="flushed"
-            onClick={() => {
-              if (seats < 10) {
-                setSeats(seats + 1);
-              }
-            }}
-          >
+          <Button variant="flushed" onClick={handleSeatsIncrement}>
             +
           </Button>
         </Flex>
