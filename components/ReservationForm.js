@@ -99,6 +99,7 @@ const ReservationForm = () => {
                 required: 'This is required',
               })}
               variant="flushed"
+              iconColor="primary.beaver"
               borderBottomColor="secondary.flushedgray"
             />
             <FormErrorMessage fontSize="11px" pos="absolute" bottom="-22px">
@@ -121,6 +122,7 @@ const ReservationForm = () => {
                 required: 'This is required',
               })}
               variant="flushed"
+              iconColor="primary.beaver"
               borderBottomColor="secondary.flushedgray"
             />
             <FormErrorMessage fontSize="11px" pos="absolute" bottom="-22px">
@@ -153,6 +155,7 @@ const ReservationForm = () => {
               <Select
                 placeholder="MM"
                 variant="flushed"
+                iconColor="primary.beaver"
                 borderBottomColor="secondary.flushedgray"
                 id="month"
                 {...register('month', {
@@ -181,6 +184,7 @@ const ReservationForm = () => {
                   required: 'This is required',
                 })}
                 variant="flushed"
+                iconColor="primary.beaver"
                 borderBottomColor="secondary.flushedgray"
               />
             </FormControl>
@@ -188,6 +192,7 @@ const ReservationForm = () => {
               <Select
                 placeholder="YY"
                 variant="flushed"
+                iconColor="primary.beaver"
                 borderBottomColor="secondary.flushedgray"
                 id="year"
                 {...register('year', {
@@ -222,6 +227,7 @@ const ReservationForm = () => {
               <Select
                 placeholder="HH"
                 variant="flushed"
+                iconColor="primary.beaver"
                 borderBottomColor="secondary.flushedgray"
                 id="hour"
                 {...register('hour', {
@@ -239,6 +245,7 @@ const ReservationForm = () => {
               <Select
                 placeholder="MN"
                 variant="flushed"
+                iconColor="primary.beaver"
                 borderBottomColor="secondary.flushedgray"
                 id="minute"
                 {...register('minute', {
@@ -255,6 +262,7 @@ const ReservationForm = () => {
             <FormControl isInvalid={errors.period} id="period">
               <Select
                 variant="flushed"
+                iconColor="primary.beaver"
                 borderBottomColor="secondary.flushedgray"
                 defaultValue="AM"
                 id="period"
@@ -281,6 +289,7 @@ const ReservationForm = () => {
         >
           <Button
             variant="flushed"
+            iconColor="primary.beaver"
             borderBottomColor="secondary.flushedgray"
             onClick={handleSeatsDecrement}
           >
@@ -291,6 +300,7 @@ const ReservationForm = () => {
           </Heading>
           <Button
             variant="flushed"
+            iconColor="primary.beaver"
             borderBottomColor="secondary.flushedgray"
             onClick={handleSeatsIncrement}
           >
