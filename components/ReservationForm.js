@@ -9,9 +9,16 @@ import {
   FormErrorMessage,
   Heading,
   Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalOverlay,
   Select,
   Stack,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -48,14 +55,27 @@ const ReservationForm = () => {
   const errorDate = errors.day || errors.month || errors.year;
   const errorTime = errors.hour || errors.minute;
 
+  const [reservation, setReservation] = useState(null);
+  let reservationDate;
+
   function onSubmit(values) {
     return new Promise((resolve) => {
+      reservationDate = new Date(
+        values.year,
+        values.month - 1,
+        values.day,
+        values.hour,
+        values.minute
+      );
       const updatedValues = { seats: seats, ...values };
+
+      console.log(updatedValues, reservationDate);
+      setReservation(updatedValues);
       setTimeout(() => {
-        alert(JSON.stringify(updatedValues, null, 2));
         resolve();
+        onOpen();
         reset();
-      }, 2000);
+      }, 1000);
     });
   }
 
@@ -73,6 +93,8 @@ const ReservationForm = () => {
     }
   }
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Box
       bg="white"
@@ -84,6 +106,47 @@ const ReservationForm = () => {
       top="-140px"
       id="form"
     >
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent p="6" borderRadius="none" mx="6">
+          <ModalCloseButton />
+          <ModalBody pt="10">
+            {reservation && (
+              <Flex justify="center" direction="column" align="center">
+                <Heading as="h2" variant="h2">
+                  Thank you.
+                </Heading>
+                <Text textStyle="body2">Reservation name:</Text>
+                <Box py="2" px="4" bg="gray.100" mb="4">
+                  {reservation.name}
+                </Box>
+                <Text textStyle="body2">Email:</Text>
+                <Box py="2" px="4" bg="gray.100" mb="4">
+                  {reservation.email}
+                </Box>
+                <Text textStyle="body2">Number of seats:</Text>
+                <Box
+                  py="2"
+                  px="4"
+                  bg="gray.100"
+                  mb="4"
+                  fontWeight="bold"
+                  fontSize="2xl"
+                >
+                  {reservation.seats}
+                </Box>
+              </Flex>
+            )}
+          </ModalBody>
+
+          <ModalFooter justifyContent="center" pt="6">
+            <Button variant="black" onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* Name */}
         <FormControl isInvalid={errors.name} id="name" mb="8">
@@ -99,7 +162,6 @@ const ReservationForm = () => {
                 required: 'This is required',
               })}
               variant="flushed"
-              iconColor="primary.beaver"
               borderBottomColor="secondary.flushedgray"
             />
             <FormErrorMessage fontSize="11px" pos="absolute" bottom="-22px">
@@ -122,7 +184,6 @@ const ReservationForm = () => {
                 required: 'This is required',
               })}
               variant="flushed"
-              iconColor="primary.beaver"
               borderBottomColor="secondary.flushedgray"
             />
             <FormErrorMessage fontSize="11px" pos="absolute" bottom="-22px">
@@ -184,7 +245,6 @@ const ReservationForm = () => {
                   required: 'This is required',
                 })}
                 variant="flushed"
-                iconColor="primary.beaver"
                 borderBottomColor="secondary.flushedgray"
               />
             </FormControl>
@@ -289,7 +349,6 @@ const ReservationForm = () => {
         >
           <Button
             variant="flushed"
-            iconColor="primary.beaver"
             borderBottomColor="secondary.flushedgray"
             onClick={handleSeatsDecrement}
           >
@@ -300,7 +359,6 @@ const ReservationForm = () => {
           </Heading>
           <Button
             variant="flushed"
-            iconColor="primary.beaver"
             borderBottomColor="secondary.flushedgray"
             onClick={handleSeatsIncrement}
           >

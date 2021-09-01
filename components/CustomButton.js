@@ -2,7 +2,7 @@ import { Button } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import PropTypes from 'prop-types';
 
-const CustomButton = ({ url, title, label, variant, isDisabled }) => {
+const CustomButton = ({ url = '', title, label, variant, isDisabled }) => {
   return (
     <NextLink href={isDisabled ? '' : url} title={title}>
       <Button
@@ -21,7 +21,7 @@ CustomButton.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['light', 'dark']).isRequired,
+  variant: PropTypes.oneOf(['light', 'dark', 'black']).isRequired,
   isDisabled: PropTypes.bool,
 };
 
