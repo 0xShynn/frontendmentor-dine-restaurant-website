@@ -17,6 +17,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
+import {
+  hoursList,
+  minutesList,
+  monthsList,
+  yearsList,
+} from '../constants/datetime';
+
 const schema = yup.object().shape({
   name: yup.string().required('A name is required'),
   email: yup.string().email().required('An email is required'),
@@ -32,10 +39,14 @@ const ReservationForm = () => {
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const errorDate = errors.day || errors.month || errors.year;
+  const errorTime = errors.hour || errors.minute;
 
   function onSubmit(values) {
     return new Promise((resolve) => {
@@ -43,12 +54,10 @@ const ReservationForm = () => {
       setTimeout(() => {
         alert(JSON.stringify(updatedValues, null, 2));
         resolve();
+        reset();
       }, 2000);
     });
   }
-
-  const errorDate = errors.day || errors.month || errors.year;
-  const errorTime = errors.hour || errors.minute;
 
   const [seats, setSeats] = useState(1);
 
@@ -63,8 +72,6 @@ const ReservationForm = () => {
       setSeats(seats + 1);
     }
   }
-
-  const currentYear = new Date().getFullYear();
 
   return (
     <Box
@@ -92,6 +99,7 @@ const ReservationForm = () => {
                 required: 'This is required',
               })}
               variant="flushed"
+              borderBottomColor="secondary.flushedgray"
             />
             <FormErrorMessage fontSize="11px" pos="absolute" bottom="-22px">
               {errors.name && errors.name.message}
@@ -113,6 +121,7 @@ const ReservationForm = () => {
                 required: 'This is required',
               })}
               variant="flushed"
+              borderBottomColor="secondary.flushedgray"
             />
             <FormErrorMessage fontSize="11px" pos="absolute" bottom="-22px">
               {errors.email && errors.email.message}
@@ -126,6 +135,7 @@ const ReservationForm = () => {
             w={{ md: '200px' }}
             direction="column"
             align={{ base: 'center', m: 'flex-start' }}
+            justify={{ base: 'flex-start', md: 'center' }}
           >
             <Text
               textStyle="body1"
@@ -138,28 +148,23 @@ const ReservationForm = () => {
                 'This field is incomplete'}
             </Text>
           </Flex>
-          <Stack
-            direction={{ base: 'column', sm: 'row' }}
-            spacing="4"
-            w="full"
-            sx={{ input: { px: 4 } }}
-          >
+          <Stack direction={{ base: 'column', sm: 'row' }} spacing="4" w="full">
             <FormControl isInvalid={errors.month} id="month">
-              <Input
-                id="month"
-                type="number"
-                min="1"
-                max="12"
+              <Select
                 placeholder="MM"
-                _placeholder={{ color: 'gray.500' }}
-                bg="white"
-                color="primary.codgray"
-                fontSize="md"
+                variant="flushed"
+                borderBottomColor="secondary.flushedgray"
+                id="month"
                 {...register('month', {
                   required: 'This is required',
                 })}
-                variant="flushed"
-              />
+              >
+                {monthsList.map((month, index) => (
+                  <option value={month} key={index}>
+                    {month}
+                  </option>
+                ))}
+              </Select>
             </FormControl>
             <FormControl isInvalid={errors.day} id="day">
               <Input
@@ -176,24 +181,25 @@ const ReservationForm = () => {
                   required: 'This is required',
                 })}
                 variant="flushed"
+                borderBottomColor="secondary.flushedgray"
               />
             </FormControl>
-            <FormControl isInvalid={errors.year} id="year">
-              <Input
+            <FormControl isInvalid={errors.year} id="year" minW="90px">
+              <Select
+                placeholder="YY"
+                variant="flushed"
+                borderBottomColor="secondary.flushedgray"
                 id="year"
-                type="number"
-                min={currentYear}
-                max={currentYear + 2}
-                placeholder="YYYY"
-                _placeholder={{ color: 'gray.500' }}
-                bg="white"
-                color="primary.codgray"
-                fontSize="md"
                 {...register('year', {
                   required: 'This is required',
                 })}
-                variant="flushed"
-              />
+              >
+                {yearsList.map((year, index) => (
+                  <option value={year} key={index}>
+                    {year}
+                  </option>
+                ))}
+              </Select>
             </FormControl>
           </Stack>
         </Flex>
@@ -211,50 +217,45 @@ const ReservationForm = () => {
               {errorTime && 'This field is incomplete'}
             </Text>
           </Flex>
-          <Stack
-            direction={{ base: 'column', sm: 'row' }}
-            spacing="4"
-            w="full"
-            sx={{ 'input, select': { px: 4 } }}
-          >
+          <Stack direction={{ base: 'column', sm: 'row' }} spacing="4" w="full">
             <FormControl isInvalid={errors.hour} id="hour">
-              <Input
+              <Select
+                placeholder="HH"
+                variant="flushed"
+                borderBottomColor="secondary.flushedgray"
                 id="hour"
-                type="number"
-                min="1"
-                max="12"
-                placeholder="09"
-                _placeholder={{ color: 'gray.500' }}
-                bg="white"
-                color="primary.codgray"
-                fontSize="md"
                 {...register('hour', {
                   required: 'This is required',
                 })}
-                variant="flushed"
-              />
+              >
+                {hoursList.map((hour, index) => (
+                  <option value={hour} key={index}>
+                    {hour}
+                  </option>
+                ))}
+              </Select>
             </FormControl>
             <FormControl isInvalid={errors.minute} id="minute">
-              <Input
+              <Select
+                placeholder="MN"
+                variant="flushed"
+                borderBottomColor="secondary.flushedgray"
                 id="minute"
-                type="number"
-                min="0"
-                max="59"
-                step="30"
-                placeholder="00"
-                _placeholder={{ color: 'gray.500' }}
-                bg="white"
-                color="primary.codgray"
-                fontSize="md"
                 {...register('minute', {
                   required: 'This is required',
                 })}
-                variant="flushed"
-              />
+              >
+                {minutesList.map((minute, index) => (
+                  <option value={minute} key={index}>
+                    {minute}
+                  </option>
+                ))}
+              </Select>
             </FormControl>
             <FormControl isInvalid={errors.period} id="period">
               <Select
                 variant="flushed"
+                borderBottomColor="secondary.flushedgray"
                 defaultValue="AM"
                 id="period"
                 {...register('period', {
@@ -272,18 +273,27 @@ const ReservationForm = () => {
         <Flex
           mb="6"
           borderBottom="1px"
+          borderBottomColor="secondary.flushedgray"
           w="full"
           direction={{ base: 'column', sm: 'row' }}
           justify="space-between"
           align="center"
         >
-          <Button variant="flushed" onClick={handleSeatsDecrement}>
+          <Button
+            variant="flushed"
+            borderBottomColor="secondary.flushedgray"
+            onClick={handleSeatsDecrement}
+          >
             -
           </Button>
           <Heading as="p" variant="h3l">
             {seats} people
           </Heading>
-          <Button variant="flushed" onClick={handleSeatsIncrement}>
+          <Button
+            variant="flushed"
+            borderBottomColor="secondary.flushedgray"
+            onClick={handleSeatsIncrement}
+          >
             +
           </Button>
         </Flex>
