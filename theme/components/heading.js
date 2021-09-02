@@ -1,7 +1,7 @@
 const heading = {
   // style object for base or default style
   baseStyle: {
-    color: 'primary.ebonyclay',
+    color: 'primary.codgray',
   },
   // styles for different sizes ("sm", "md", "lg")
   sizes: {},

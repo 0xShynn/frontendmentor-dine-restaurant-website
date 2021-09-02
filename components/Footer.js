@@ -19,7 +19,7 @@ const Footer = () => {
         lineHeight="2"
         {...props}
       >
-        <Text>{children}</Text>
+        <Text color="white">{children}</Text>
       </Box>
     );
   };
