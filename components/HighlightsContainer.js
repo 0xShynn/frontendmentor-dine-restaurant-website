@@ -17,7 +17,12 @@ import PatternDivider from './patterns/PatternDivider';
 
 const HighlightsContainer = () => {
   return (
-    <Box bg="primary.codgray" w="full">
+    <Box
+      bg="primary.codgray"
+      w="full"
+      role="region"
+      aria-label="Highlights section"
+    >
       <Flex
         justify="center"
         direction={{ base: 'column', xl: 'row' }}

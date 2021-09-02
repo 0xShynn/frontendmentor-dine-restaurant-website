@@ -19,15 +19,16 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Box role="main">
+        <Flex direction="column" align="center">
+          <Hero />
+          <MainContainer />
+          <HighlightsContainer />
+        </Flex>
 
-      <Flex role="main" direction="column" align="center">
-        <Hero />
-        <MainContainer />
-        <HighlightsContainer />
-      </Flex>
-
-      <EventsContainer />
-      <ReservationBanner />
+        <EventsContainer />
+        <ReservationBanner />
+      </Box>
       <Footer />
     </Box>
   );

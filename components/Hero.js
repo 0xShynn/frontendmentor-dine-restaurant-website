@@ -11,7 +11,13 @@ import Logo from './Logo';
 
 const Hero = () => {
   return (
-    <Box bg="primary.codgray" w="full" pos="relative">
+    <Box
+      bg="primary.codgray"
+      w="full"
+      pos="relative"
+      role="region"
+      aria-label="Hero landmark"
+    >
       {/* Hero bg image lg */}
       <Box
         display={{ base: 'none', lg: 'inline-flex' }}

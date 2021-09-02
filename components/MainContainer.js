@@ -11,7 +11,14 @@ import MainBox from './MainBox';
 
 const MainContainer = () => {
   return (
-    <Flex w="full" direction="column" py={{ base: 8, sm: 0 }} bg="white">
+    <Flex
+      w="full"
+      direction="column"
+      py={{ base: 8, sm: 0 }}
+      bg="white"
+      role="region"
+      aria-label="Main container"
+    >
       <MainBox
         isFirst={true}
         imageSide="left"

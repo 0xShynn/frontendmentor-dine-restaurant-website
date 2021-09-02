@@ -34,6 +34,7 @@ const EventsContainer = () => {
       imageMobile: familyGatheringMobile,
       imageTablet: familyGatheringTablet,
       imageDesktop: familyGatheringDesktop,
+      imageAlt: 'Family gathering at Dine restaurant',
     },
     {
       label: 'Special Events',
@@ -42,6 +43,7 @@ const EventsContainer = () => {
       imageMobile: specialEventsMobile,
       imageTablet: specialEventsTablet,
       imageDesktop: specialEventsDesktop,
+      imageAlt: 'Specials events celebrated at Dine restaurant',
     },
     {
       label: 'Social Events',
@@ -50,6 +52,7 @@ const EventsContainer = () => {
       imageMobile: socialEventsMobile,
       imageTablet: socialEventsTablet,
       imageDesktop: socialEventsDesktop,
+      imageAlt: 'Event, big parties at Dine',
     },
   ];
 
@@ -65,7 +68,7 @@ const EventsContainer = () => {
         isFitted
         orientation={tabsOrientation}
         variant="unstyled"
-        id="1"
+        id="eventsTabs"
         py={{ base: 16, md: 24, xl: 32 }}
       >
         <Flex direction={{ base: 'column', xl: 'row' }} align="center">
@@ -85,6 +88,7 @@ const EventsContainer = () => {
                       src={tab.imageMobile}
                       width={tab.imageMobile.width / 2}
                       height={tab.imageMobile.height / 2}
+                      alt={tab.imageAlt}
                     />
                   </Box>
 
@@ -101,6 +105,7 @@ const EventsContainer = () => {
                       src={tab.imageTablet}
                       width={tab.imageTablet.width / 2}
                       height={tab.imageTablet.height / 2}
+                      alt={tab.imageAlt}
                     />
                     <Box
                       pos="absolute"
@@ -112,6 +117,7 @@ const EventsContainer = () => {
                       <NextImage
                         src="/images/pattern-lines.svg"
                         layout="fill"
+                        role="presentation"
                       />
                     </Box>
                   </Box>
@@ -127,6 +133,7 @@ const EventsContainer = () => {
                       src={tab.imageDesktop}
                       width={tab.imageDesktop.width / 2}
                       height={tab.imageDesktop.height / 2}
+                      alt={tab.imageAlt}
                     />
                     <Box
                       pos="absolute"
@@ -138,6 +145,7 @@ const EventsContainer = () => {
                       <NextImage
                         src="/images/pattern-lines.svg"
                         layout="fill"
+                        role="presentation"
                       />
                     </Box>
                   </Box>
@@ -154,10 +162,10 @@ const EventsContainer = () => {
               {data.map((tab, index) => (
                 <Tab
                   key={index}
-                  color="#A6A6A6"
+                  color="#595959"
                   role="group"
                   _selected={{
-                    color: 'primary.codgray',
+                    color: '#866c57',
                     bgImage: {
                       base: '/images/line48.svg',
                       xl: 'none',
@@ -248,7 +256,7 @@ const EventsContainer = () => {
           xl: '-355px 0',
         }}
       />
-      <Flex justify="center">
+      <Flex justify="center" role="region" aria-label="Events section">
         <DataTabs data={tabData} />
       </Flex>
     </Box>

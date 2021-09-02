@@ -101,6 +101,7 @@ const MainBox = ({
                   src="/images/pattern-lines.svg"
                   width="160px"
                   height="76px"
+                  role="presentation"
                 />
               </Box>
             )}
@@ -127,6 +128,7 @@ const MainBox = ({
                   src="/images/pattern-lines.svg"
                   width="160px"
                   height="76px"
+                  role="presentation"
                 />
               </Box>
             )}
@@ -154,6 +156,7 @@ const MainBox = ({
                   src="/images/pattern-lines.svg"
                   width="160px"
                   height="76px"
+                  role="presentation"
                 />
               </Box>
             )}

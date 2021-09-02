@@ -15,6 +15,8 @@ const ReservationBanner = () => {
       bgPos="center"
       bgSize="cover"
       bgRepeat="no-repeat"
+      role="region"
+      aria-label="Reservation banner"
     >
       <Flex
         direction={{ base: 'column', xl: 'row' }}
