@@ -42,7 +42,7 @@ const schema = yup.object().shape({
   period: yup.string().required(),
 });
 
-const ReservationForm = () => {
+const BookingForm = () => {
   const {
     handleSubmit,
     register,
@@ -98,13 +98,14 @@ const ReservationForm = () => {
   return (
     <Box
       bg="white"
+      w="full"
       maxW={{ base: 'full', sm: '540px' }}
-      mx="auto"
-      p="8"
+      p={{ base: 8, xl: 12 }}
       shadow="2xl"
       pos="relative"
-      top="-140px"
+      top={{ base: '-140px', xl: '-340px' }}
       id="form"
+      h={{ xl: '531px' }}
     >
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -374,4 +375,4 @@ const ReservationForm = () => {
   );
 };
 
-export default ReservationForm;
+export default BookingForm;

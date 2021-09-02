@@ -1,4 +1,5 @@
 import { Box, Flex, Heading } from '@chakra-ui/react';
+import { maxScreenWidth } from '../constants/style';
 
 import CustomLink from './CustomLink';
 
@@ -20,7 +21,7 @@ const ReservationBanner = () => {
         justify={{ base: 'center', xl: 'space-between' }}
         textAlign="center"
         py={{ base: 20, xl: 24 }}
-        maxW="1110px"
+        maxW={maxScreenWidth}
         mx="auto"
       >
         <Heading as="h2" variant="h2" color="white" mb={{ base: 6, xl: 0 }}>

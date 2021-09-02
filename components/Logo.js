@@ -8,7 +8,6 @@ const Logo = () => {
     <NextLink href="/" passHref>
       <Box
         w={{ base: '83px', md: '103px' }}
-        mb={{ base: 6, lg: 24, xl: '150px' }}
         mx={{ base: 'auto', md: 0 }}
         cursor="pointer"
       >

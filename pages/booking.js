@@ -1,9 +1,10 @@
 import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 
+import BookingForm from '../components/BookingForm';
 import Footer from '../components/Footer';
 import Logo from '../components/Logo';
-import ReservationForm from '../components/ReservationForm';
+import { maxScreenWidth } from '../constants/style';
 
 const Booking = () => {
   return (
@@ -27,40 +28,73 @@ const Booking = () => {
         bgPos="top"
         bgSize="cover"
       >
-        <Box
-          alignSelf={{ base: 'center', md: 'flex-start' }}
+        <Flex
           w="full"
+          maxW={maxScreenWidth}
+          justify={{ base: 'center', md: 'flex-start' }}
           pt="12"
-          px={{ md: 12 }}
-          mb={{ md: 12 }}
+          px={{ md: 12, xl: 6 }}
+          mb={{ base: 8, md: '100px', lg: '100px', xl: '150px' }}
         >
           <Logo />
-        </Box>
-        <Heading as="h1" variant="h1" color="white" mb="6">
-          Reservations
-        </Heading>
-        <Text
-          textStyle={{ base: 'body2', md: 'body1' }}
-          color="white"
-          textAlign="center"
-          maxW="573px"
-          mb={{ base: 6, md: '180px' }}
+        </Flex>
+
+        <Flex
+          direction={{ base: 'column', xl: 'row' }}
+          w="full"
+          maxW={maxScreenWidth}
         >
-          We can’t wait to host you. If you have any special requirements please
-          feel free to call on the phone number below. We’ll be happy to
-          accommodate you.
-        </Text>
-        <Link href="#form" variant="dark" mb="220px" display={{ md: 'none' }}>
-          Reserve place
-        </Link>
-        <Box
+          <Flex
+            pb={{ base: 20, md: 36, xl: '76px' }}
+            textAlign={{ base: 'center', xl: 'left' }}
+            direction="column"
+            justify="center"
+            px="6"
+            w={{ xl: '570px' }}
+          >
+            <Heading as="h1" variant="h1" color="white" mb="6">
+              Reservations
+            </Heading>
+            <Text
+              textStyle={{ base: 'body2', md: 'body1' }}
+              color="white"
+              maxW={{ base: '573px', xl: '445px' }}
+              mx={{ base: 'auto', xl: 0 }}
+              mb={{ base: 6, md: 12 }}
+            >
+              We can’t wait to host you. If you have any special requirements
+              please feel free to call on the phone number below. We’ll be happy
+              to accommodate you.
+            </Text>
+            <Link
+              href="#form"
+              variant="dark"
+              mb="100px"
+              display={{ base: 'block', md: 'none' }}
+            >
+              Reserve place
+            </Link>
+          </Flex>
+        </Flex>
+
+        <Flex
           w={{ base: 'full' }}
           bg="white"
-          px={{ base: 6, md: '0' }}
-          boxSizing="border-box"
+          mx="auto"
+          justify={{ base: 'center' }}
+          className="hello"
+          maxH={{ xl: '291px' }}
         >
-          <ReservationForm />
-        </Box>
+          <Flex
+            w="full"
+            maxW={maxScreenWidth}
+            justify={{ base: 'center', xl: 'flex-end' }}
+            mx={{ base: 6, md: '0', xl: '36' }}
+            p="6"
+          >
+            <BookingForm />
+          </Flex>
+        </Flex>
       </Flex>
 
       <Footer />
