@@ -26,6 +26,7 @@ import {
 import BookingModal from './BookingModal';
 import CustomInput from './CustomInput';
 import CustomSelect from './CustomSelect';
+import { maxScreenWidth } from '../../constants/style';
 
 const schema = yup.object().shape({
   name: yup.string().required('A name is required'),
@@ -115,11 +116,16 @@ const BookingForm = () => {
   };
 
   return (
-    <Box pos="relative" zIndex="overlay">
+    <Flex
+      pos="relative"
+      zIndex="overlay"
+      w="full"
+      justify={{ base: 'center', xl: 'flex-end' }}
+    >
       <Box
         pos="absolute"
         bottom="90px"
-        left="-80px"
+        right="460px"
         zIndex="base"
         display={{ base: 'none', xl: 'block' }}
       >
@@ -338,7 +344,7 @@ const BookingForm = () => {
           </Button>
         </form>
       </Box>
-    </Box>
+    </Flex>
   );
 };
 
