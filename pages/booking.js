@@ -33,7 +33,7 @@ const Booking = () => {
           maxW={maxScreenWidth}
           justify={{ base: 'center', md: 'flex-start' }}
           pt="12"
-          px={{ md: 12, xl: 6 }}
+          px={{ md: 12, xl: 0 }}
           mb={{ base: 8, md: '100px', lg: '100px', xl: '150px' }}
         >
           <Logo />
@@ -50,8 +50,8 @@ const Booking = () => {
             direction="column"
             justify="center"
             align={{ base: 'center', xl: 'flex-start' }}
-            px="6"
-            w={{ xl: '570px' }}
+            px={{ base: 6, xl: 0 }}
+            w={{ xl: '545px' }}
           >
             <Heading as="h1" variant="h1" color="white" mb="6">
               Reservations
@@ -92,7 +92,7 @@ const Booking = () => {
             maxW={maxScreenWidth}
             justify={{ base: 'center', xl: 'flex-end' }}
             mx={{ base: 6, md: '0', xl: '36' }}
-            p="6"
+            p={{ base: 6, xl: 0 }}
           >
             <BookingForm />
           </Flex>
