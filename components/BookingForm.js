@@ -9,12 +9,6 @@ import {
   FormErrorMessage,
   Heading,
   Input,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalOverlay,
   Select,
   Stack,
   Text,
@@ -30,6 +24,8 @@ import {
   monthsList,
   yearsList,
 } from '../constants/datetime';
+
+import BookingModal from './BookingModal';
 
 const schema = yup.object().shape({
   name: yup.string().required('A name is required'),
@@ -107,46 +103,11 @@ const BookingForm = () => {
       id="form"
       h={{ sm: '559px', md: '499px', xl: '531px' }}
     >
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent p="6" borderRadius="none" mx="6">
-          <ModalCloseButton />
-          <ModalBody pt="10">
-            {reservation && (
-              <Flex justify="center" direction="column" align="center">
-                <Heading as="h2" variant="h2">
-                  Thank you.
-                </Heading>
-                <Text textStyle="body2">Reservation name:</Text>
-                <Box py="2" px="4" bg="gray.100" mb="4">
-                  {reservation.name}
-                </Box>
-                <Text textStyle="body2">Email:</Text>
-                <Box py="2" px="4" bg="gray.100" mb="4">
-                  {reservation.email}
-                </Box>
-                <Text textStyle="body2">Number of seats:</Text>
-                <Box
-                  py="2"
-                  px="4"
-                  bg="gray.100"
-                  mb="4"
-                  fontWeight="bold"
-                  fontSize="2xl"
-                >
-                  {reservation.seats}
-                </Box>
-              </Flex>
-            )}
-          </ModalBody>
-
-          <ModalFooter justifyContent="center" pt="6">
-            <Button variant="black" onClick={onClose}>
-              Close
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      <BookingModal
+        isOpen={isOpen}
+        onClose={onClose}
+        bookingData={reservation}
+      />
 
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* Name */}
