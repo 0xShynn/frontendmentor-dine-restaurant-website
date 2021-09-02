@@ -1,5 +1,6 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+
 import { maxScreenWidth } from '../constants/style';
 
 import Logo from './Logo';

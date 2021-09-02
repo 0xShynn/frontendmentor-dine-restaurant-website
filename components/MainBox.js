@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import PropTypes from 'prop-types';
+
 import { maxScreenWidth } from '../constants/style';
 
 import PatternDivider from './patterns/PatternDivider';

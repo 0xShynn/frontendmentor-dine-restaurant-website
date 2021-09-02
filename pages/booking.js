@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 
-import BookingForm from '../components/BookingForm';
+import BookingForm from '../components/bookingForm/BookingForm';
 import Footer from '../components/Footer';
 import Logo from '../components/Logo';
 import { maxScreenWidth } from '../constants/style';

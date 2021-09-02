@@ -1,4 +1,5 @@
 import { Box, Flex, Heading } from '@chakra-ui/react';
+
 import { maxScreenWidth } from '../constants/style';
 
 import CustomLink from './CustomLink';
