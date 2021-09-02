@@ -1,4 +1,4 @@
-const styles = {
+const global = {
   global: {
     // styles for the `body`
     body: {
@@ -9,4 +9,4 @@ const styles = {
   },
 };
 
-export default styles;
+export default global;

@@ -169,6 +169,11 @@ const EventsContainer = () => {
                   }}
                   alignSelf={{ base: 'center', xl: 'flex-start' }}
                   pos="relative"
+                  textTransform="uppercase"
+                  fontSize="14px"
+                  fontWeight="semibold"
+                  lineHeight="28px"
+                  letterSpacing="2px"
                 >
                   <Box
                     h="1px"
@@ -178,9 +183,7 @@ const EventsContainer = () => {
                     className="line"
                     display={{ base: 'none', xl: 'block' }}
                   />
-                  <Heading as="h3" variant="h3s">
-                    {tab.label}
-                  </Heading>
+                  {tab.label}
                 </Tab>
               ))}
             </TabList>
@@ -234,7 +237,6 @@ const EventsContainer = () => {
           md: '320px',
         }}
         pos="absolute"
-        zIndex="hide"
         bgImage="/images/pattern-curve-top-right.svg"
         bgRepeat="no-repeat"
         bgSize={{

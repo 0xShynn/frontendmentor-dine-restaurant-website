@@ -28,7 +28,6 @@ const MainBox = ({
         <Box
           w="full"
           pos="absolute"
-          zIndex="hide"
           h={{
             md: isLeftImage ? '490px' : '770px',
             lg: '600px',
