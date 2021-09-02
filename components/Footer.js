@@ -1,5 +1,6 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import { maxScreenWidth } from '../constants/style';
 
 import Logo from './Logo';
 
@@ -36,10 +37,12 @@ const Footer = () => {
         px={{ base: 6, md: 16, xl: 0 }}
         py={{ base: 16, xl: 20 }}
         mx="auto"
-        maxW="1110px"
+        maxW={maxScreenWidth}
         w="full"
       >
-        <Logo />
+        <Box mb={{ base: 6, md: 0 }}>
+          <Logo />
+        </Box>
 
         <Flex direction={{ base: 'column', lg: 'row' }}>
           <TextBlock>

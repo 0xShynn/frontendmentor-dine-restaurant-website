@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import PropTypes from 'prop-types';
+import { maxScreenWidth } from '../constants/style';
 
 import PatternDivider from './patterns/PatternDivider';
 
@@ -59,7 +60,7 @@ const MainBox = ({
         px={{ base: 6, md: 10, lg: 20, xl: 0 }}
         py={{ base: 12, sm: 0 }}
         pos="relative"
-        maxW={{ lg: '960px', xl: '1110px' }}
+        maxW={{ lg: '960px', xl: maxScreenWidth }}
         mx="auto"
       >
         {/* Image */}

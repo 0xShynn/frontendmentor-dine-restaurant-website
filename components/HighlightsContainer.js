@@ -10,6 +10,7 @@ import {
 import beefImage from '../assets/homepage/beef-mobile@2x.jpg';
 import chocolateImage from '../assets/homepage/chocolate-mobile@2x.jpg';
 import salmonImage from '../assets/homepage/salmon-mobile@2x.jpg';
+import { maxScreenWidth } from '../constants/style';
 
 import HighlightsMenu from './HighlightsMenu';
 import PatternDivider from './patterns/PatternDivider';
@@ -23,7 +24,7 @@ const HighlightsContainer = () => {
         pt={{ base: '30px', md: '50px', lg: '120px', xl: '180px' }}
         pb={{ base: '70px', md: '90px', lg: '120px' }}
         px={{ base: 6, lg: 16, xl: 0 }}
-        maxW="1110px"
+        maxW={maxScreenWidth}
         mx="auto"
       >
         <Flex

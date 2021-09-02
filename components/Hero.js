@@ -4,6 +4,7 @@ import NextImage from 'next/image';
 import dishImageDesktop from '../assets/homepage/hero-bg-desktop@2x.jpg';
 import dishImageMobile from '../assets/homepage/hero-bg-mobile@2x.jpg';
 import dishImageTablet from '../assets/homepage/hero-bg-tablet@2x.jpg';
+import { maxScreenWidth } from '../constants/style';
 
 import CustomLink from './CustomLink';
 import Logo from './Logo';
@@ -34,7 +35,7 @@ const Hero = () => {
         mx="auto"
         justify="space-between"
         boxSizing="content-box"
-        maxW={{ lg: '960px', xl: '1110px' }}
+        maxW={{ lg: '960px', xl: maxScreenWidth }}
       >
         {/* Hero bg image mobile */}
         <Box display={{ base: 'inline-flex', md: 'none' }}>
