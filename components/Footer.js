@@ -32,7 +32,7 @@ const Footer = () => {
         color="white"
         direction={{ base: 'column', md: 'row' }}
         align={{ base: 'center', md: 'flex-start' }}
-        justify={{ md: 'space-between', xl: 'flex-start' }}
+        justify="space-between"
         px={{ base: 6, md: 16, xl: 0 }}
         py={{ base: 16, xl: 20 }}
         mx="auto"
