@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Flex,
   Heading,
@@ -9,7 +8,12 @@ import {
   ModalContent,
   ModalFooter,
   ModalOverlay,
-  Text,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Td,
+  TableCaption,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
@@ -17,44 +21,84 @@ const BookingModal = ({ isOpen, onClose, bookingData }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent p="6" borderRadius="none" mx="6" bg="white">
+      <ModalContent
+        pt={{ base: 4, sm: 12, md: 12 }}
+        pb={{ base: 4, sm: 6 }}
+        borderRadius="none"
+        mx={{ base: 0, sm: 6 }}
+        bg="white"
+      >
         <ModalCloseButton color="black" />
-        <ModalBody pt="10">
+        <ModalBody>
           {bookingData && (
-            <Flex justify="center" direction="column" align="center">
-              <Heading
-                as="h2"
-                variant="h3l"
-                color="primary.codgray"
-                textAlign="center"
-              >
-                Reservation confirmed.
+            <Flex
+              justify="center"
+              direction="column"
+              align="center"
+              textAlign="center"
+            >
+              <Heading as="h2" variant="h3l" mb="8" fontSize="2xl">
+                Your reservation is confirmed
               </Heading>
-              <Text my="8">We will procede to bla bla bla bla.</Text>
 
-              <Text textStyle="body2" color="primary.codgray">
-                Reservation name:
+              <Table variant="simple" size="sm">
+                <TableCaption>
+                  Dine
+                  <br />
+                  Marthwaite, Sedbergh. Cumbria
+                  <br />
+                  +00 44 123 4567
+                  <br />
+                  <br />
+                  OPEN TIMES <br />
+                  MON - FRI: 09:00 AM - 10:00 PM
+                  <br />
+                  SAT - SUN: 09:00 AM - 11:30PM
+                  <br />
+                </TableCaption>
+                <Thead>
+                  <Tr>
+                    <Td>Name:</Td>
+                    <Td isNumeric>{bookingData.name}</Td>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  <Tr>
+                    <Td>Email: </Td>
+                    <Td isNumeric>{bookingData.email}</Td>
+                  </Tr>
+                  <Tr>
+                    <Td>Table for</Td>
+                    <Td isNumeric>{bookingData.seats}</Td>
+                  </Tr>
+                </Tbody>
+              </Table>
+
+              {/* <Text textStyle="body2">
+                Reservation name:{' '}
+                <chakra.span fontWeight="semibold" ml="1">
+                  {bookingData.name}
+                </chakra.span>
               </Text>
-              <Box py="2" px="4" bg="gray.100" mb="4">
-                <Text>{bookingData.name}</Text>
-              </Box>
 
-              <Text textStyle="body2">Email:</Text>
-              <Box py="2" px="4" bg="gray.100" mb="4">
-                <Text>{bookingData.email}</Text>
-              </Box>
+              <Text textStyle="body2">
+                Email:{' '}
+                <chakra.span fontWeight="semibold" ml="1">
+                  {bookingData.email}
+                </chakra.span>
+              </Text>
 
-              <Text textStyle="body2">Number of seats:</Text>
-              <Box py="2" px="4" bg="gray.100" mb="4">
-                <Text fontWeight="bold" fontSize="2xl">
+              <Text textStyle="body2">
+                Table for:{' '}
+                <chakra.span fontWeight="semibold" ml="1">
                   {bookingData.seats}
-                </Text>
-              </Box>
+                </chakra.span>
+              </Text> */}
             </Flex>
           )}
         </ModalBody>
 
-        <ModalFooter justifyContent="center" pt="6">
+        <ModalFooter justifyContent="center">
           <Button variant="black" onClick={onClose}>
             Close
           </Button>
