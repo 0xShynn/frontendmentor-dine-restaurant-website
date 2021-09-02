@@ -26,6 +26,7 @@ import {
 } from '../constants/datetime';
 
 import BookingModal from './BookingModal';
+import CustomInput from './CustomInput';
 
 const schema = yup.object().shape({
   name: yup.string().required('A name is required'),
@@ -111,48 +112,30 @@ const BookingForm = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* Name */}
-        <FormControl isInvalid={errors.name} id="name" mb="8">
-          <Flex direction="column" pos="relative">
-            <Input
-              id="name"
-              placeholder="Name"
-              _placeholder={{ color: 'gray.500' }}
-              bg="white"
-              color="primary.codgray"
-              fontSize="md"
-              {...register('name', {
-                required: 'This is required',
-              })}
-              variant="flushed"
-              borderBottomColor="secondary.flushedgray"
-            />
-            <FormErrorMessage fontSize="11px" pos="absolute" bottom="-22px">
-              {errors.name && errors.name.message}
-            </FormErrorMessage>
-          </Flex>
-        </FormControl>
+        <CustomInput
+          id="name"
+          placeholder="Name"
+          errorName={errors?.name}
+          errorMessage={errors?.name?.message}
+          register={{
+            ...register('name', {
+              required: 'This is required',
+            }),
+          }}
+        />
 
         {/* Email */}
-        <FormControl isInvalid={errors.name} id="email" mb="8">
-          <Flex direction="column" pos="relative">
-            <Input
-              id="email"
-              placeholder="Email"
-              _placeholder={{ color: 'gray.500' }}
-              bg="white"
-              color="primary.codgray"
-              fontSize="md"
-              {...register('email', {
-                required: 'This is required',
-              })}
-              variant="flushed"
-              borderBottomColor="secondary.flushedgray"
-            />
-            <FormErrorMessage fontSize="11px" pos="absolute" bottom="-22px">
-              {errors.email && errors.email.message}
-            </FormErrorMessage>
-          </Flex>
-        </FormControl>
+        <CustomInput
+          id="email"
+          placeholder="Email"
+          errorName={errors?.name}
+          errorMessage={errors?.email?.message}
+          register={{
+            ...register('email', {
+              required: 'This is required',
+            }),
+          }}
+        />
 
         {/* Date */}
         <Flex direction={{ base: 'column', md: 'row' }} mb="8">
