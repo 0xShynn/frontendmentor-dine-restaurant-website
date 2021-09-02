@@ -2,7 +2,15 @@ import { Flex, FormControl, FormErrorMessage, Input } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
 const CustomInput = (props) => {
-  const { id, placeholder, errorName, errorMessage, register } = props;
+  const {
+    id,
+    placeholder,
+    errorName,
+    errorMessage,
+    register,
+    showErrorMessage,
+    ...otherProps
+  } = props;
   return (
     <FormControl isInvalid={errorName} id={id} mb="8">
       <Flex direction="column" pos="relative">
@@ -16,10 +24,13 @@ const CustomInput = (props) => {
           variant="flushed"
           borderBottomColor="secondary.flushedgray"
           {...register}
+          {...otherProps}
         />
-        <FormErrorMessage fontSize="11px" pos="absolute" bottom="-22px">
-          {errorName && errorMessage}
-        </FormErrorMessage>
+        {showErrorMessage && (
+          <FormErrorMessage fontSize="11px" pos="absolute" bottom="-22px">
+            {errorName && errorMessage}
+          </FormErrorMessage>
+        )}
       </Flex>
     </FormControl>
   );
@@ -31,6 +42,7 @@ CustomInput.propTypes = {
   id: PropTypes.string,
   placeholder: PropTypes.string,
   register: PropTypes.object,
+  showErrorMessage: PropTypes.bool,
 };
 
 export default CustomInput;

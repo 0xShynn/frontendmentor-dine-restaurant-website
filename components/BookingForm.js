@@ -128,7 +128,7 @@ const BookingForm = () => {
         <CustomInput
           id="email"
           placeholder="Email"
-          errorName={errors?.name}
+          errorName={errors?.email}
           errorMessage={errors?.email?.message}
           register={{
             ...register('email', {
@@ -175,24 +175,23 @@ const BookingForm = () => {
                 ))}
               </Select>
             </FormControl>
-            <FormControl isInvalid={errors.day} id="day">
-              <Input
-                id="day"
-                type="number"
-                min="1"
-                max="31"
-                placeholder="DD"
-                _placeholder={{ color: 'gray.500' }}
-                bg="white"
-                color="primary.codgray"
-                fontSize="md"
-                {...register('day', {
+
+            <CustomInput
+              id="day"
+              placeholder="DD"
+              errorName={errors?.day}
+              errorMessage={errors?.day?.message}
+              showErrorMessage={false}
+              register={{
+                ...register('day', {
                   required: 'This is required',
-                })}
-                variant="flushed"
-                borderBottomColor="secondary.flushedgray"
-              />
-            </FormControl>
+                }),
+              }}
+              min="1"
+              max="31"
+              type="number"
+            />
+
             <FormControl isInvalid={errors.year} id="year" minW="90px">
               <Select
                 placeholder="YY"
