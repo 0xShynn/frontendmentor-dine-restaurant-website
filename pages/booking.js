@@ -26,7 +26,7 @@ const Booking = () => {
         }}
         bgRepeat="no-repeat"
         bgPos="top"
-        bgSize="cover"
+        bgSize="contain"
       >
         <Flex
           w="full"
