@@ -93,7 +93,26 @@ const Booking = () => {
             justify={{ base: 'center', xl: 'flex-end' }}
             mx={{ base: 6, md: '0', xl: '36' }}
             p={{ base: 6, xl: 0 }}
+            className="hello"
           >
+            <Box
+              w="full"
+              h={{
+                xl: '320px',
+              }}
+              pos="absolute"
+              bgImage="/images/pattern-curve-top-right.svg"
+              bgRepeat="no-repeat"
+              bgSize={{
+                xl: '895px 320px',
+              }}
+              bgPos={{
+                xl: '160px 0',
+              }}
+              transform="rotate(1turn) scale(1, -1)"
+              zIndex="base"
+            />
+
             <BookingForm />
           </Flex>
         </Flex>

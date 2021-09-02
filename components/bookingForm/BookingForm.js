@@ -11,6 +11,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
+import NextImage from 'next/image';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -114,205 +115,229 @@ const BookingForm = () => {
   };
 
   return (
-    <Box
-      bg="white"
-      w="full"
-      maxW={{ base: 'full', sm: '540px' }}
-      p={{ base: 8, xl: 12 }}
-      shadow="2xl"
-      pos="relative"
-      top={{ base: '-140px', xl: '-340px' }}
-      id="form"
-      h={{ sm: 'max-content' }}
-    >
-      <BookingModal
-        isOpen={isOpen}
-        onClose={onClose}
-        bookingData={reservation}
-      />
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* Name */}
-        <CustomInput
-          id="name"
-          placeholder="Name"
-          errorName={errors?.name}
-          errorMessage={errors?.name?.message}
-          register={{
-            ...register('name', {
-              required: 'This is required',
-            }),
-          }}
+    <Box pos="relative" zIndex="overlay">
+      <Box
+        pos="absolute"
+        bottom="90px"
+        left="-80px"
+        zIndex="base"
+        display={{ base: 'none', xl: 'block' }}
+      >
+        <NextImage
+          src="/images/pattern-lines.svg"
+          width="160px"
+          height="76px"
+          role="presentation"
+        />
+      </Box>
+      <Box
+        bg="white"
+        w="full"
+        maxW={{ base: 'full', sm: '540px' }}
+        p={{ base: 6, sm: 8, xl: 12 }}
+        shadow="2xl"
+        pos="relative"
+        top={{ base: '-140px', xl: '-340px' }}
+        id="form"
+        h={{ sm: 'max-content' }}
+      >
+        <BookingModal
+          isOpen={isOpen}
+          onClose={onClose}
+          bookingData={reservation}
         />
 
-        {/* Email */}
-        <CustomInput
-          id="email"
-          placeholder="Email"
-          errorName={errors?.email}
-          errorMessage={errors?.email?.message}
-          register={{
-            ...register('email', {
-              required: 'This is required',
-            }),
-          }}
-        />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* Name */}
+          <CustomInput
+            id="name"
+            placeholder="Name"
+            errorName={errors?.name}
+            errorMessage={errors?.name?.message}
+            register={{
+              ...register('name', {
+                required: 'This is required',
+              }),
+            }}
+          />
 
-        {/* Date */}
-        <Flex direction={{ base: 'column', md: 'row' }} mb="8">
-          <CustomFormHeading title="Pick a date" />
-          <Stack direction={{ base: 'column', sm: 'row' }} spacing="4" w="full">
-            {/* Month */}
-            <CustomSelect
-              id="month"
-              placeholder="MM"
-              errorName={errors?.month}
-              register={{
-                ...register('month', {
-                  required: 'This is required',
-                }),
-              }}
+          {/* Email */}
+          <CustomInput
+            id="email"
+            placeholder="Email"
+            errorName={errors?.email}
+            errorMessage={errors?.email?.message}
+            register={{
+              ...register('email', {
+                required: 'This is required',
+              }),
+            }}
+          />
+
+          {/* Date */}
+          <Flex direction={{ base: 'column', md: 'row' }} mb="8">
+            <CustomFormHeading title="Pick a date" />
+            <Stack
+              direction={{ base: 'column', sm: 'row' }}
+              spacing="4"
+              w="full"
             >
-              {monthsList.map((month, index) => (
-                <option value={month} key={index}>
-                  {month}
-                </option>
-              ))}
-            </CustomSelect>
+              {/* Month */}
+              <CustomSelect
+                id="month"
+                placeholder="MM"
+                errorName={errors?.month}
+                register={{
+                  ...register('month', {
+                    required: 'This is required',
+                  }),
+                }}
+              >
+                {monthsList.map((month, index) => (
+                  <option value={month} key={index}>
+                    {month}
+                  </option>
+                ))}
+              </CustomSelect>
 
-            {/* Day */}
-            <CustomInput
-              id="day"
-              placeholder="DD"
-              errorName={errors?.day}
-              errorMessage={errors?.day?.message}
-              showErrorMessage={false}
-              register={{
-                ...register('day', {
-                  required: 'This is required',
-                }),
-              }}
-              min="1"
-              max="31"
-              type="number"
-            />
+              {/* Day */}
+              <CustomInput
+                id="day"
+                placeholder="DD"
+                errorName={errors?.day}
+                errorMessage={errors?.day?.message}
+                showErrorMessage={false}
+                register={{
+                  ...register('day', {
+                    required: 'This is required',
+                  }),
+                }}
+                min="1"
+                max="31"
+                type="number"
+              />
 
-            {/* Year */}
-            <CustomSelect
-              id="year"
-              placeholder="YY"
-              errorName={errors?.year}
-              register={{
-                ...register('year', {
-                  required: 'This is required',
-                }),
-              }}
+              {/* Year */}
+              <CustomSelect
+                id="year"
+                placeholder="YY"
+                errorName={errors?.year}
+                register={{
+                  ...register('year', {
+                    required: 'This is required',
+                  }),
+                }}
+              >
+                {yearsList.map((year, index) => (
+                  <option value={year} key={index}>
+                    {year}
+                  </option>
+                ))}
+              </CustomSelect>
+            </Stack>
+          </Flex>
+
+          {/* Time */}
+          <Flex direction={{ base: 'column', md: 'row' }} mb="8">
+            <CustomFormHeading title="Pick a time" />
+            <Stack
+              direction={{ base: 'column', sm: 'row' }}
+              spacing="4"
+              w="full"
             >
-              {yearsList.map((year, index) => (
-                <option value={year} key={index}>
-                  {year}
-                </option>
-              ))}
-            </CustomSelect>
-          </Stack>
-        </Flex>
+              {/* Hour */}
+              <CustomSelect
+                id="hour"
+                placeholder="HH"
+                errorName={errors?.hour}
+                register={{
+                  ...register('hour', {
+                    required: 'This is required',
+                  }),
+                }}
+              >
+                {hoursList.map((hour, index) => (
+                  <option value={hour} key={index}>
+                    {hour}
+                  </option>
+                ))}
+              </CustomSelect>
 
-        {/* Time */}
-        <Flex direction={{ base: 'column', md: 'row' }} mb="8">
-          <CustomFormHeading title="Pick a time" />
-          <Stack direction={{ base: 'column', sm: 'row' }} spacing="4" w="full">
-            {/* Hour */}
-            <CustomSelect
-              id="hour"
-              placeholder="HH"
-              errorName={errors?.hour}
-              register={{
-                ...register('hour', {
-                  required: 'This is required',
-                }),
-              }}
-            >
-              {hoursList.map((hour, index) => (
-                <option value={hour} key={index}>
-                  {hour}
-                </option>
-              ))}
-            </CustomSelect>
+              {/* Minute */}
+              <CustomSelect
+                id="minute"
+                placeholder="MN"
+                errorName={errors?.minute}
+                register={{
+                  ...register('minute', {
+                    required: 'This is required',
+                  }),
+                }}
+              >
+                {minutesList.map((minute, index) => (
+                  <option value={minute} key={index}>
+                    {minute}
+                  </option>
+                ))}
+              </CustomSelect>
 
-            {/* Minute */}
-            <CustomSelect
-              id="minute"
-              placeholder="MN"
-              errorName={errors?.minute}
-              register={{
-                ...register('minute', {
-                  required: 'This is required',
-                }),
-              }}
-            >
-              {minutesList.map((minute, index) => (
-                <option value={minute} key={index}>
-                  {minute}
-                </option>
-              ))}
-            </CustomSelect>
+              {/* Period Selector */}
+              <CustomSelect
+                id="period"
+                defaultValue="AM"
+                errorName={errors?.period}
+                register={{
+                  ...register('period', {
+                    required: 'This is required',
+                  }),
+                }}
+              >
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </CustomSelect>
+            </Stack>
+          </Flex>
 
-            {/* Period Selector */}
-            <CustomSelect
-              id="period"
-              defaultValue="AM"
-              errorName={errors?.period}
-              register={{
-                ...register('period', {
-                  required: 'This is required',
-                }),
-              }}
-            >
-              <option value="AM">AM</option>
-              <option value="PM">PM</option>
-            </CustomSelect>
-          </Stack>
-        </Flex>
-
-        {/* Seats */}
-        <Flex
-          mb="6"
-          borderBottom="1px"
-          borderBottomColor="secondary.flushedgray"
-          w="full"
-          direction={{ base: 'column', sm: 'row' }}
-          justify="space-between"
-          align="center"
-        >
-          <Button
-            variant="flushed"
+          {/* Seats */}
+          <Flex
+            mb="6"
+            borderBottom="1px"
             borderBottomColor="secondary.flushedgray"
-            onClick={handleSeatsDecrement}
+            w="full"
+            direction={{ base: 'column', sm: 'row' }}
+            justify="space-between"
+            align="center"
           >
-            -
-          </Button>
-          <Heading as="p" variant="h3l">
-            {seats} people
-          </Heading>
-          <Button
-            variant="flushed"
-            borderBottomColor="secondary.flushedgray"
-            onClick={handleSeatsIncrement}
-          >
-            +
-          </Button>
-        </Flex>
+            <Button
+              variant="flushed"
+              borderBottomColor="secondary.flushedgray"
+              onClick={handleSeatsDecrement}
+            >
+              -
+            </Button>
+            <Heading as="p" variant="h3l">
+              {seats} people
+            </Heading>
+            <Button
+              variant="flushed"
+              borderBottomColor="secondary.flushedgray"
+              onClick={handleSeatsIncrement}
+            >
+              +
+            </Button>
+          </Flex>
 
-        <Button
-          variant="black"
-          type="submit"
-          w="full"
-          display="flex"
-          isLoading={isSubmitting}
-        >
-          Make reservation
-        </Button>
-      </form>
+          <Button
+            variant="black"
+            type="submit"
+            w="full"
+            display="flex"
+            isLoading={isSubmitting}
+          >
+            Make reservation
+          </Button>
+        </form>
+      </Box>
     </Box>
   );
 };

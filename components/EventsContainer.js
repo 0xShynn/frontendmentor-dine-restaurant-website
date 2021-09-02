@@ -240,6 +240,18 @@ const EventsContainer = () => {
   return (
     <Box bg="white">
       <Box
+        bgImage="/images/pattern-curve-top-right.svg"
+        bgRepeat="no-repeat"
+        bgSize={{
+          md: '895px 320px',
+        }}
+        bgPos={{
+          md: '-520px 0',
+          lg: '-300px 0',
+          xl: '-355px 0',
+        }}
+      />
+      <Box
         w="full"
         h={{
           md: '320px',
@@ -256,6 +268,7 @@ const EventsContainer = () => {
           xl: '-355px 0',
         }}
       />
+
       <Flex justify="center" role="region" aria-label="Events section">
         <DataTabs data={tabData} />
       </Flex>
