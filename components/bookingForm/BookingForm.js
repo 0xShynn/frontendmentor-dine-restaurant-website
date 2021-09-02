@@ -26,7 +26,6 @@ import {
 import BookingModal from './BookingModal';
 import CustomInput from './CustomInput';
 import CustomSelect from './CustomSelect';
-import { maxScreenWidth } from '../../constants/style';
 
 const schema = yup.object().shape({
   name: yup.string().required('A name is required'),
@@ -124,10 +123,10 @@ const BookingForm = () => {
     >
       <Box
         pos="absolute"
-        bottom="90px"
-        right="460px"
+        bottom={{ lg: '110px', xl: '90px' }}
+        right={{ lg: '670px', xl: '460px' }}
         zIndex="base"
-        display={{ base: 'none', xl: 'block' }}
+        display={{ base: 'none', lg: 'block', xl: 'block' }}
       >
         <NextImage
           src="/images/pattern-lines.svg"

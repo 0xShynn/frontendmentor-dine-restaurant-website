@@ -97,15 +97,16 @@ const Booking = () => {
             <Box
               w="full"
               h={{
-                xl: '320px',
+                lg: '320px',
               }}
               pos="absolute"
               bgImage="/images/pattern-curve-top-right.svg"
               bgRepeat="no-repeat"
               bgSize={{
-                xl: '895px 320px',
+                lg: '895px 320px',
               }}
               bgPos={{
+                lg: '-120px 0',
                 xl: '160px 0',
               }}
               transform="rotate(1turn) scale(1, -1)"
