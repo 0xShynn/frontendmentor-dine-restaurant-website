@@ -66,7 +66,9 @@ const Hero = () => {
           textAlign={{ base: 'center', lg: 'left' }}
           zIndex="docked"
         >
-          <Logo />
+          <Box mb={{ base: 6, lg: 24, xl: '150px' }}>
+            <Logo />
+          </Box>
 
           <Heading
             as="h1"
