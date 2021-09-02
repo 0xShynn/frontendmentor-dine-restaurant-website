@@ -10,6 +10,7 @@ const CustomSelect = (props) => {
       <Select
         placeholder={placeholder}
         variant="flushed"
+        color="secondary.inputgray"
         iconColor="primary.beaver"
         borderBottomColor="secondary.flushedgray"
         id={id}

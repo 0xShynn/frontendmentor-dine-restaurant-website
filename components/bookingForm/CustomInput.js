@@ -18,7 +18,7 @@ const CustomInput = (props) => {
         <Input
           id={id}
           placeholder={placeholder}
-          _placeholder={{ color: 'gray.500' }}
+          _placeholder={{ color: 'secondary.inputgray' }}
           bg="white"
           color="primary.codgray"
           fontSize="md"

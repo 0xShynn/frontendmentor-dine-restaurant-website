@@ -9,6 +9,7 @@ const colors = {
     shuttlegray: 'hsl(217, 14%, 42%)',
     dinegray: '#181818',
     flushedgray: '#8E8E8E',
+    inputgray: '#888888',
   },
 };
 
