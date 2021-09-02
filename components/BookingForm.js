@@ -105,7 +105,7 @@ const BookingForm = () => {
       pos="relative"
       top={{ base: '-140px', xl: '-340px' }}
       id="form"
-      h={{ xl: '531px' }}
+      h={{ md: '499px', xl: '531px' }}
     >
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

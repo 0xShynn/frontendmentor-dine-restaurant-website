@@ -83,7 +83,7 @@ const Booking = () => {
           mx="auto"
           justify={{ base: 'center' }}
           className="hello"
-          maxH={{ xl: '291px' }}
+          maxH={{ md: '499px', xl: '311px' }}
         >
           <Flex
             w="full"
