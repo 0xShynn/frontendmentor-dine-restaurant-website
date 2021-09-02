@@ -123,7 +123,7 @@ const BookingForm = () => {
       pos="relative"
       top={{ base: '-140px', xl: '-340px' }}
       id="form"
-      h={{ sm: '559px', md: '499px', xl: '531px' }}
+      h={{ sm: 'max-content' }}
     >
       <BookingModal
         isOpen={isOpen}
