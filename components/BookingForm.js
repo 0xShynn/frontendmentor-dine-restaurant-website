@@ -105,7 +105,7 @@ const BookingForm = () => {
       pos="relative"
       top={{ base: '-140px', xl: '-340px' }}
       id="form"
-      h={{ md: '499px', xl: '531px' }}
+      h={{ sm: '559px', md: '499px', xl: '531px' }}
     >
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -367,7 +367,13 @@ const BookingForm = () => {
           </Button>
         </Flex>
 
-        <Button variant="black" type="submit" w="full" isLoading={isSubmitting}>
+        <Button
+          variant="black"
+          type="submit"
+          w="full"
+          display="flex"
+          isLoading={isSubmitting}
+        >
           Make reservation
         </Button>
       </form>

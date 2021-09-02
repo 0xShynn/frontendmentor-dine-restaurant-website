@@ -49,6 +49,7 @@ const Booking = () => {
             textAlign={{ base: 'center', xl: 'left' }}
             direction="column"
             justify="center"
+            align={{ base: 'center', xl: 'flex-start' }}
             px="6"
             w={{ xl: '570px' }}
           >
@@ -70,6 +71,7 @@ const Booking = () => {
               href="#form"
               variant="dark"
               mb="100px"
+              w="fit-content"
               display={{ base: 'block', md: 'none' }}
             >
               Reserve place
@@ -83,7 +85,7 @@ const Booking = () => {
           mx="auto"
           justify={{ base: 'center' }}
           className="hello"
-          maxH={{ md: '499px', xl: '311px' }}
+          maxH={{ sm: '539px', md: '499px', xl: '311px' }}
         >
           <Flex
             w="full"
