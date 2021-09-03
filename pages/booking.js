@@ -30,7 +30,7 @@ const Booking = () => {
           w="full"
           maxW={maxScreenWidth}
           justify={{ base: 'center', md: 'flex-start' }}
-          pt="12"
+          pt={{ base: 10, sm: 12, md: 16, lg: 20, xl: '65px' }}
           px={{ md: 12, xl: 0 }}
           mb={{ base: 8, md: '100px', lg: '100px', xl: '150px' }}
         >

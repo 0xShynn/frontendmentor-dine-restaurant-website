@@ -9,6 +9,7 @@ import {
   Tabs,
   Text,
   useBreakpointValue,
+  chakra,
 } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import PropTypes from 'prop-types';
@@ -185,7 +186,7 @@ const EventsContainer = () => {
                   lineHeight="28px"
                   letterSpacing="2px"
                 >
-                  <Text
+                  <chakra.span
                     h="1px"
                     w="95px"
                     pos="absolute"

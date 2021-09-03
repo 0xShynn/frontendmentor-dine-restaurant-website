@@ -7,9 +7,11 @@ const Logo = () => {
   return (
     <NextLink href="/" passHref>
       <Box
+        as="a"
         w={{ base: '83px', md: '103px' }}
         mx={{ base: 'auto', md: 0 }}
         cursor="pointer"
+        display="block"
       >
         <DineLogo />
       </Box>
