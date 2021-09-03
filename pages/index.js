@@ -15,14 +15,6 @@ export default function Home() {
         title="Home"
         description="Exquisite dining since 1989, experience our seasonal menu in beautiful country surroundings."
       />
-      {/* <Head>
-        <title>Dine - Exquisite dining since 1989</title>
-        <meta
-          name="description"
-          content="Experience our seasonal menu in beautiful country surroundings. Eat the freshest produce from the comfort of our farmhouse."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head> */}
       <Box role="main">
         <Flex direction="column" align="center">
           <Hero />
