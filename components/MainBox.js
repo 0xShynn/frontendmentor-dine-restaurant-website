@@ -47,7 +47,7 @@ const MainBox = ({
             lg: isLeftImage ? '-50px 50px' : '-50px 50px',
             xl: isLeftImage ? '0 280px' : '0 170px',
           }}
-          transform={isLeftImage ? 0 : 'rotate(1turn) scale(-1, 1)'}
+          transform={isLeftImage ? '' : 'rotate(1turn) scale(-1, 1)'}
         />
       )}
 
@@ -102,6 +102,7 @@ const MainBox = ({
                   width="160px"
                   height="76px"
                   role="presentation"
+                  alt=""
                 />
               </Box>
             )}
@@ -129,6 +130,7 @@ const MainBox = ({
                   width="160px"
                   height="76px"
                   role="presentation"
+                  alt=""
                 />
               </Box>
             )}
@@ -157,6 +159,7 @@ const MainBox = ({
                   width="160px"
                   height="76px"
                   role="presentation"
+                  alt=""
                 />
               </Box>
             )}

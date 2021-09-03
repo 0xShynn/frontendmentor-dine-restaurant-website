@@ -133,6 +133,7 @@ const BookingForm = () => {
           width="160px"
           height="76px"
           role="presentation"
+          alt=""
         />
       </Box>
       <Box

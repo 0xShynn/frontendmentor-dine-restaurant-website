@@ -118,6 +118,7 @@ const EventsContainer = () => {
                         src="/images/pattern-lines.svg"
                         layout="fill"
                         role="presentation"
+                        alt=""
                       />
                     </Box>
                   </Box>
@@ -146,6 +147,7 @@ const EventsContainer = () => {
                         src="/images/pattern-lines.svg"
                         layout="fill"
                         role="presentation"
+                        alt=""
                       />
                     </Box>
                   </Box>
@@ -183,7 +185,7 @@ const EventsContainer = () => {
                   lineHeight="28px"
                   letterSpacing="2px"
                 >
-                  <Box
+                  <Text
                     h="1px"
                     w="95px"
                     pos="absolute"
