@@ -68,7 +68,6 @@ const BookingForm = () => {
       );
       const updatedValues = { seats: seats, ...values };
 
-      console.log(updatedValues, reservationDate);
       setReservation(updatedValues);
       setTimeout(() => {
         resolve();
