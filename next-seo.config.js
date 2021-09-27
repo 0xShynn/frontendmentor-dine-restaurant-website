@@ -2,6 +2,8 @@ const canonicalUrl =
   'https://frontendmentor-dine-restaurant-website.vercel.app/';
 
 const defaultTitle = 'Dine Restaurant';
+const defaultDescription =
+  'Experience our seasonal menu in beautiful country surroundings. Eat the freshest produce from the comfort of our farmhouse.';
 
 export const SEO = {
   defaultTitle: defaultTitle,
@@ -98,6 +100,7 @@ export const SEO = {
   ],
   openGraph: {
     title: 'Dine Restaurant • Exquisite dining since 1989',
+    description: defaultDescription,
     type: 'website',
     locale: 'en_IE',
     url: canonicalUrl,
