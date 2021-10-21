@@ -20,6 +20,11 @@ const link = {
     ...light,
     ...black,
     ...dark,
+    basic: {
+      borderWidth: 0,
+      textTransform: 'normal',
+      letterSpacing: 0,
+    },
   },
   defaultProps: {
     size: 'md',
