@@ -12,7 +12,9 @@ import global from './global';
 import textStyles from './textStyles';
 
 const overrides = {
-  global,
+  styles: {
+    global,
+  },
   colors,
   breakpoints,
   fonts,
